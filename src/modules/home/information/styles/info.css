@@ -1,0 +1,36 @@
+.fondo-info1{
+    background-image: url(../../../assets/info/envios.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 9rem;
+}
+
+.fondo-info2{
+    background-image: url(../../../assets/info/tarjeta.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 9rem;
+
+}
+
+.fondo-info3{
+    background-image: url(../../../assets/info/efectivo.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 9rem;
+
+}
+.fondo-info4{
+    background-image: url(../../../assets/info/moda.jpg);
+    background-size: cover;
+    background-position: start;
+    height: 9rem;
+
+}
+.fondo-body{
+    backdrop-filter: blur(0px);
+    transition:  backdrop-filter 0.3s ease;
+}
+.fondo-body:hover{
+    backdrop-filter: blur(4px); 
+}
