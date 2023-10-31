@@ -1,0 +1,36 @@
+.fondo-login{
+    background-image: url(../../assets/login/pexels-bob-price-764880.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    height:59rem;
+    width: 100%;
+
+}
+.form-login{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    backdrop-filter: blur(2px);
+
+}
+.inputs{
+    border-top:transparent ;
+    border-left: transparent;
+    border-right: transparent;
+    border-radius: 0px;
+    border-color: var(--white);
+
+}
+.inputs:focus{
+    box-shadow: none;
+    outline: none;
+    border-color: var(--white);
+    border-top:transparent ;
+    border-left: transparent;
+    border-right: transparent;
+    border-radius: 0px;
+
+}
