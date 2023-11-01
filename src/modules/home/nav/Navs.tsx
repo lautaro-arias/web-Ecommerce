@@ -1,32 +1,69 @@
-import { faBagShopping, faBars } from '@fortawesome/free-solid-svg-icons';
+import {  faBagShopping, faBars, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import  {  GoogleLogin  } from'@react-oauth/google' ;
+import { GoogleOAuthProvider } from '@react-oauth/google';
+import Menu from '../menu-offcanvas/Menu';
+import useNavHandler from './handlers/navHandler';
 import './styles/navs.css';
 
 const Navs = () => {
+const{
+    onSuccess,
+    showLoginButton,
+    handleLoginButtonClick,
+    }=useNavHandler()  
+
 return (
     <>
-    
-        <nav className="navbar nav navbar-expand-lg p-0">
+        <nav className="navbar nav-nav navbar-expand-lg p-0">
                 <div className="container-fluid">
-                <FontAwesomeIcon type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" 
-                aria-controls="offcanvasScrolling" icon={faBars} /> 
-                        <h1 className=" title navbar-brand text-center  fs-1"  >Nous</h1>
-                            <form className="d-flex" role="search">
-                            <FontAwesomeIcon  type="button" icon={faBagShopping} />
-                            </form>
+                        <FontAwesomeIcon type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" 
+                        aria-controls="offcanvasScrolling" icon={faBars} /> 
+                        <a className=" title navbar-brand text-center fs-1" href="/" >Nous</a>
+                            <form className="d-flex" >
+                            {showLoginButton && ( 
+                                    <div className="dropdown dropstart">
+                                        <FontAwesomeIcon
+                                            className="dropdown-toggle p-2 me-1 btn btn-outline-dark border border-dark rounded-5"
+                                            title="crea tu cuenta"
+                                            type="button"
+                                            data-bs-toggle="dropdown"
+                                            icon={faUser}
+                                            onClick={handleLoginButtonClick}
+                                            />
+                                        <ul className="dropdown-menu p-0 border border-dark rounded-0">
+                                            <li >
+                                            <GoogleOAuthProvider clientId = "102221184199-2r9igs03kv5n4a1mmpbe80li9fdt5j5a.apps.googleusercontent.com" >  
+                                                <GoogleLogin
+                                                    onSuccess={onSuccess}
+                                                    onError={() => {
+                                                        console.log("Error al iniciar sesion")
+                                                    }}
+                                                />
+                                            </ GoogleOAuthProvider>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                )}
+                                {!showLoginButton&& (
+                                <div> 
+                                    <GoogleOAuthProvider clientId = "102221184199-2r9igs03kv5n4a1mmpbe80li9fdt5j5a.apps.googleusercontent.com" >  
+                                        <GoogleLogin
+                                        onSuccess={onSuccess}
+                                        onError={() => {
+                                        console.log("Error al iniciar sesion")
+                                        }}
+                                        />
+                                    </ GoogleOAuthProvider>
+                                </div>
+                                )}
+                                <FontAwesomeIcon className="p-2 mx-4 btn btn-outline-dark border border-dark rounded-5"
+                                    title="compras" type="button" icon={faBagShopping} />
+                                </form>
                     </div>
             </nav>
-                <div className="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex-="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
-                        <div className="offcanvas-header">
-                            <h5 className="offcanvas-title" id="offcanvasScrollingLabel">Offcanvas with body scrolling</h5>
-                            <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                        </div>
-                            <div className="offcanvas-body">
-                            <p>Try scrolling the rest of the page to see this option in action.</p>
-                        </div>
-                </div>
-</>
-
+            <Menu/>
+    </>
 )
 }
 

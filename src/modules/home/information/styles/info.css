@@ -1,12 +1,12 @@
 .fondo-info1{
-    background-image: url(../../../assets/info/envios.jpg);
+    background-image: url(../../../assets/info/envios.png);
     background-size: cover;
     background-position: center;
     height: 9rem;
 }
 
 .fondo-info2{
-    background-image: url(../../../assets/info/tarjeta.jpg);
+    background-image: url(../../../assets/info/tarjeta.png);
     background-size: cover;
     background-position: center;
     height: 9rem;
@@ -14,14 +14,14 @@
 }
 
 .fondo-info3{
-    background-image: url(../../../assets/info/efectivo.jpg);
+    background-image: url(../../../assets/info/efectivo.png);
     background-size: cover;
     background-position: center;
     height: 9rem;
 
 }
 .fondo-info4{
-    background-image: url(../../../assets/info/moda.jpg);
+    background-image: url(../../../assets/info/moda.png);
     background-size: cover;
     background-position: start;
     height: 9rem;

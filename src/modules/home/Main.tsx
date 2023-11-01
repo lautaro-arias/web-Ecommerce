@@ -4,6 +4,7 @@ import ProductsHome from '../home/season-products/ProductsHome';
 import Info from '../home/information/Info';
 import Categories from '../home/categories/Categories';
 import Footer from '../home/footer/Footer';
+import MapGoogle from './map-google/MapGoogle';
 
 function Main() {
 return (
@@ -13,6 +14,7 @@ return (
     <Info />
     <Categories />
     <ProductsHome />
+    <MapGoogle/>
     <Footer />
     </div>
 );

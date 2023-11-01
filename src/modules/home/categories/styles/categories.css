@@ -21,3 +21,8 @@ li{
     outline: none;
     border-color: var(--grey);
 }
+@media (max-width: 768px) {
+    .horizontal-list li {
+      flex: 0 0 100%; /* Hacer que los elementos ocupen el 100% del ancho en pantallas pequeñas */
+    }
+}

@@ -5,7 +5,7 @@
 .title{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-.nav{
+.nav-nav{
     position: fixed; /* Fija la posición del elemento */
     top: 0px; /* Lo sitúa en la parte superior de la ventana */
     left: 0; /* Lo sitúa en la parte izquierda de la ventana */
@@ -13,7 +13,12 @@
     z-index: 1000; /* Ajusta la profundidad para asegurarse de que esté por encima de otros elementos */
     backdrop-filter: blur(10px);
 }
-
-
+#user{
+    background-color: aqua;
+}
+.img-user{
+    height: 1.8rem;
+    width: 20%;
+}
 
 
