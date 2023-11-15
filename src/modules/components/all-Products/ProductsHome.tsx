@@ -27,12 +27,19 @@ const ProductsHome = () => {
                       </div>
                   </div>
                 </div>
+                
               ))}
-                <div className="container mt-4 btn btn-outline-dark rounded-4 p-0 " onClick={toggleCards}> 
-                {showAll ? 'Ver menos' : 'Ver más'}
-                <FontAwesomeIcon
-                  type="button" className='ms-2' icon={faChevronDown}  />  
+                <div className="d-flex justify-content-center text-center">
+                  <div className="spinner-border text-primary" role="status">
+                    <span className="visually-hidden text-dark">Loading...</span>
+                  </div>
+              </div>
+              <div className="container mt-4 btn btn-outline-dark rounded-4 p-0 " onClick={toggleCards}> 
+                    {showAll ? 'Ver menos' : 'Ver más'}
+                  <FontAwesomeIcon
+                    type="button" className='ms-2' icon={faChevronDown}  />  
                 </div>
+              
           </div>
     </div>
   )
