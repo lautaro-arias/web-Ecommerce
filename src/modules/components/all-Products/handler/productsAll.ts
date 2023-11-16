@@ -1,12 +1,39 @@
-import  { useState,useEffect } from 'react';
-import { faBagShopping } from '@fortawesome/free-solid-svg-icons';
+import  {useEffect,useReducer } from 'react';
 import { ProductService } from '../../../../services/productAll.service'
 
-
 const useAllProductHandler = () => {
-    
 
-    const [productLists, setProductLists] = useState({});
+    //Reducer  //Agregarle otro estado para que al apretar las categorias que me muestre el arrayas de producto indicado
+    type Product = {
+    tipo:string,nombre:string,img:string,marca:string,talle:string,
+
+    precio:number,rebaja:number,color:string,descripcion:string,id:string,
+    };
+    
+    type ProductList = {
+        [key: string]: Product[]; // Un objeto va a tener arrays de productos 
+    };
+
+    type ActionType = {
+        type: 'Data-products';
+        payload: { modelName: string; products: Product[] };
+    };
+    
+    const initialState: ProductList = {};
+    
+    const productReducer = (state: ProductList, action: ActionType) => {
+        switch (action.type) {
+        case 'Data-products':
+            return {
+            ...state,
+            [action.payload.modelName]: action.payload.products,
+            };
+        default:
+            return state;
+        }
+    };
+    //
+
     //arrays de modelos de url - Api
     const modelos = ['products-remeras', 'products-camperas', 'products-busos', 'products-pantalones'];
 
@@ -22,52 +49,41 @@ const useAllProductHandler = () => {
                     // Hace una solicitud al servicio para obtener la lista de productos según el modelo
                     const response = await productService.listing(modelName);
                      // Almacena la respuesta en productData usando el nombre del modelo 
+                    dispatch({ type: 'Data-products', payload: { modelName, products: response } });
                     productData[modelName] = response;
                 } catch (error) {
                     console.error(`Error al obtener productos para ${modelName}:`, error);
                 }
             }
-            setProductLists(productData);
             console.log("Product data useefect",productData)
         };
 
         fetchProducts();
     }, []);
-
-    // informacion de las cards
-    const descripcion:string= "3 cuotas sin interes con todas las tarjetas";
-    const icono =faBagShopping;
     //
- 
 
-    const produsctsSeason = [
-    {img:"pantalon2.png",precio:"$ 12.000",rebaja:"$13.900",icono,nombre:"Pantalon",descripcion,},
-    {img:"pantalon.png",precio:"$ 14.000",rebaja:"$16.000",icono,nombre:"Pantalon",descripcion,},
-    {img:"remera.png",precio:"$ 9.500",rebaja:"$11.500",icono,nombre:"Remera",descripcion,},
-    {img:"remera2.png",precio:"$ 8.000",rebaja:"$9.500",icono,nombre:"Remera",descripcion,},
-    {img:"campera.png",precio:"$ 20.000", rebaja:"$25.000",icono,nombre:"Campera jeans",descripcion,},
-    {img:"campera2.png",precio:"$ 15.000", rebaja:"$18.000",icono,nombre:"Campera saco",descripcion,},
-    {img:"buso.png",precio:"$ 10.000",rebaja:"$15.000",icono,nombre:"Buso",descripcion,},
-    {img:"buso2.png",precio:"$ 12.000",rebaja:"$14.000",icono,nombre:"Buso",descripcion,},
-    ]
+    // Datos obtenidos del Reducer 
+    const [productList, dispatch] = useReducer(productReducer, initialState);
     
+    const remerasData = productList['products-remeras']
+    const busosData = productList['products-busos'];
+    const camperasData = productList['products-camperas'];
+    const pantalonesData = productList['products-pantalones'];
 
-    //control de vista de cards
-    const [products, setProducts] = useState(produsctsSeason);
-    const [showAll, setShowAll] = useState(false);
-    
-    const toggleCards = () => {
-    setShowAll(!showAll);
-    };
-    
-    const visibleCards = showAll ? products : products.slice(0,4);
+    const allProducts = [
+        ...(remerasData || []),
+        ...(busosData || []),
+        ...(camperasData || []),
+        ...(pantalonesData || []),
+    ];
     //
 
     return{
-    setProducts,
-    showAll, 
-    toggleCards,
-    visibleCards,
+    productList, 
+    dispatch,
+    productReducer,
+    initialState,
+    allProducts,
     }
 }
     export default useAllProductHandler 
