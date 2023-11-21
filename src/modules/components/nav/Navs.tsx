@@ -57,8 +57,13 @@ return (
                                     </ GoogleOAuthProvider>
                                 </div>
                                 )}
+                        
                                 <FontAwesomeIcon className="p-2 mx-4 btn btn-outline-dark border border-dark rounded-5"
                                     title="compras" type="button" icon={faBagShopping} />
+                                     <span className=" top-30 start-10 translate-middle badge rounded-pill bg-danger">
+                                        0
+                                    </span>
+                                 
                                 </form>
                     </div>
             </nav>

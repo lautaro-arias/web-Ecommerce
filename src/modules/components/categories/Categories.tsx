@@ -1,8 +1,7 @@
 import './styles/categories.css'
 
+const Categories= ({ handleFilter }:any) => {
 
-
-const Categories = () => {
   return (
     <div className="container mt-4"> 
         <div className="card border border-white">
@@ -14,10 +13,16 @@ const Categories = () => {
               <div className="card-body">
                 <h5 className="card-title">Que te gustaria ver hoy ?</h5> 
                   <ul className="  horizontal-list ">
-                    <li className="btn btn-outline-dark  p-0 mb-2 mt-2 rounded-4 me-2 ">Pantalones</li>
-                    <li className="btn btn-outline-dark  p-0 mb-2 mt-2 rounded-4 me-2 ">Camperas</li>
-                    <li className="btn btn-outline-dark  p-0 mb-2 mt-2 rounded-4 me-2 ">Busos</li>
-                    <li className="btn btn-outline-dark  p-0 mb-2 mt-2 rounded-4 me-2 ">Todo</li>
+                    <li className="btn btn-outline-dark  p-0 mb-2 mt-2 rounded-4 me-2 "
+                    onClick={() => handleFilter('remera')}>Remera</li>
+                    <li className="btn btn-outline-dark  p-0 mb-2 mt-2 rounded-4 me-2 "
+                    onClick={() => handleFilter('buso')}>Buso</li>
+                    <li className="btn btn-outline-dark  p-0 mb-2 mt-2 rounded-4 me-2 "
+                    onClick={() => handleFilter('campera')}>Campera</li>
+                    <li className="btn btn-outline-dark  p-0 mb-2 mt-2 rounded-4 me-2 "
+                    onClick={() => handleFilter('pantalon')}>Pantalon</li>
+                    <li className="btn btn-outline-dark  p-0 mb-2 mt-2 rounded-4 me-2 "
+                    onClick={() => handleFilter('')}>Todo</li>
                   </ul>
               </div>
           </div>

@@ -1,9 +1,9 @@
-import  {useEffect,useReducer } from 'react';
+import  {useEffect,useReducer} from 'react';
 import { ProductService } from '../../../../services/productAll.service'
 
 const useAllProductHandler = () => {
 
-    //Reducer  //Agregarle otro estado para que al apretar las categorias que me muestre el arrayas de producto indicado
+    //Reducer  
     type Product = {
     tipo:string,nombre:string,img:string,marca:string,talle:string,
 
@@ -55,7 +55,6 @@ const useAllProductHandler = () => {
                     console.error(`Error al obtener productos para ${modelName}:`, error);
                 }
             }
-            console.log("Product data useefect",productData)
         };
 
         fetchProducts();

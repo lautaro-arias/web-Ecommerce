@@ -6,10 +6,7 @@ import './styles/menu.css'
 
 const Menu = () => {
 
-const{
-    toggleCollapse,
-    isCollapsed
-    }=useMenuHandler()
+const{toggleCollapse,isCollapsed}=useMenuHandler()
 
 return (
     <div className="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex-="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
@@ -38,12 +35,12 @@ return (
                                 <ul className="nav flex-column mt-4">
                                     <li className="nav-item mt-2 mb-2 dropdown">
                                         <div className="dropdown dropend">
-                                                <a href="1" className=" ms-4 dropdown-toggle text-decoration-none text-dark" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <a href='0' className=" ms-4 dropdown-toggle text-decoration-none text-dark" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                                     Remeras
                                                 </a>
                                                 <ul className="dropdown-menu dropdown-menu-dark ">
-                                                    <li><a className="dropdown-item text-white" href="1">Manga corta</a></li>
-                                                    <li><a className="dropdown-item text-white" href="1">Musculosas</a></li>
+                                                    <li><a className="dropdown-item text-white" href='0'  >Manga corta</a></li>
+                                                    <li><a className="dropdown-item text-white" href='0' >Musculosas</a></li>
                                                 </ul>
                                             </div>
                                         </li> 

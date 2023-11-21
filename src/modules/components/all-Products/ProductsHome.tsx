@@ -1,19 +1,20 @@
-import { faBagShopping } from '@fortawesome/free-solid-svg-icons'
+import { faBagShopping, faInfo } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import useAllProductHandler from './handler/productsAll'
 import './styles/productHome.css'
+import Categories from '../categories/Categories'
+import useFilterProduct from '../categories/handlers/filterProduct'
 
 const ProductsHome = () => {
-  const{
 
-    allProducts
-
-  } = useAllProductHandler()
+  const { filteredProducts ,handleFilter}= useFilterProduct()
 
   return (
     <div className="container mb-4">
+
+        <Categories handleFilter={handleFilter} />
+
           <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4  row-cols-xl-4">
-                      {allProducts.map((product, index) => (
+                      { filteredProducts.map((product, index) => (
                     <div className="col mt-2" key={index}>
                       <div className="card">
                         <img
@@ -34,23 +35,27 @@ const ProductsHome = () => {
                               ${product.rebaja}
                             </span>
                           </h6>
-                          <small className="card-text text-muted">
+                          
+                          <div className="btn-group" role="group">
+                              <a type="button" className="p-1 mb-2 btn btn-outline-dark border border-dark rounded-5 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                              info
+                              </a>
+                              <ul className="dropdown-menu">
+                                <li><small className="dropdown-item card-text text-success">En stock :</small></li>
+                                <li><small className="dropdown-item card-text">colores: {product.color}</small></li>
+                                <li><small className="dropdown-item card-text ">talles: {product.talle}</small></li>
+                                <li><small className="dropdown-item card-text ">tipo: {product.tipo}</small></li>
+                              </ul>
+                            </div>
+                        </div>
+                        <small className="card-text text-muted mb-4">
                             {product.descripcion}
                           </small>
-                          <small className="card-text text-muted">{product.color}</small>
-                          <small className="card-text text-muted">{product.talle}</small>
-                          <small className="card-text text-muted">{product.tipo}</small>
-                        </div>
                       </div>
                     </div>
                   ))}
-                    
-          {/*<div className="container mt-4 btn btn-outline-dark rounded-4 p-0 " onClick={toggleCards}> 
-                    {showAll ? 'Ver menos' : 'Ver más'}
-                  <FontAwesomeIcon
-                    type="button" className='ms-2' icon={faChevronDown}  />  
-                    </div>*/}
-                </div>
+                  
+          </div>
     </div>
   )
 }
