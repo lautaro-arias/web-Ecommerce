@@ -13,6 +13,8 @@ const handleLoginButtonClick = () => {
 }
 const onSuccess = (credentialResponse:any) => {
     jwtDecode(credentialResponse.credential);
+    console.log(jwtDecode(credentialResponse.credential))
+    console.log(onSuccess)
     setUser(true)
 }
 return{

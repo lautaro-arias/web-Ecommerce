@@ -13,9 +13,7 @@
     z-index: 1000; /* Ajusta la profundidad para asegurarse de que esté por encima de otros elementos */
     backdrop-filter: blur(10px);
 }
-#user{
-    background-color: aqua;
-}
+
 .img-user{
     height: 1.8rem;
     width: 20%;

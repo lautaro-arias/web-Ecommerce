@@ -1,0 +1,20 @@
+.img-product-components{
+    width: 100%;
+    height: 28rem;
+}
+
+.image-container {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .icon-on-image {
+    position: absolute;
+    bottom: 10px; /* Ajusta la posición vertical del icono */
+    left: 50%; /* Ajusta la posición horizontal del icono */
+    transform: translateX(-50%);
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.8); /* Opcional: añade un fondo para mejorar la visibilidad del icono */
+    padding: 5px;
+    border-radius: 50%; /* Opcional: haz el icono redondo */
+  }

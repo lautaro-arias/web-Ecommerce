@@ -1,17 +1,18 @@
 import {useState}  from 'react'
 
 const useMenuHandler = () => {
-    const [isCollapsed, setIsCollapsed] = useState(false);
+const [isCollapsed, setIsCollapsed] = useState(false);
 
-    const toggleCollapse = () => {
-    setIsCollapsed(!isCollapsed);
-    };          
-return  {
-            useState,
-            toggleCollapse,
-            setIsCollapsed,
-            isCollapsed
-        }
+const toggleCollapse = () => {
+setIsCollapsed(!isCollapsed);
+};
+
+return {
+useState,
+toggleCollapse,
+setIsCollapsed,
+isCollapsed
+}
 
 }
 

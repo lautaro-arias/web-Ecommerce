@@ -1,8 +1,10 @@
 import {  faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 import useMenuHandler from './handlers/menuHandler'
-import dark from '../../assets/logo/dark.png'
+import logomenu from '../../assets/logo/logomenu.png'
 import './styles/menu.css'
+
 
 const Menu = () => {
 
@@ -10,22 +12,25 @@ const{toggleCollapse,isCollapsed}=useMenuHandler()
 
 return (
     <div className="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex-="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
-                        <div className="offcanvas-header ">
-                            <img src={dark} className="logo rounded-4" alt="logo" title="Logo Nous"/>
-                            <button type="button" className="btn-close btn-close-dark" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                        </div>
+                        <div className="offcanvas-header justify-content-end">
+                                <button type="button" title="Volver" className="btn-close btn-close-dark ms-5 border border-dark rounded-5" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            </div>
+                                <div className="offcanvas-header justify-content-center">
+                                    <LazyLoadImage src={logomenu} className="logo  rounded-0" alt="logo" title="Logo Nous"/>
+                                </div>
                             <div className="offcanvas-body text-start">
                                 <h5 className="offcanvas-title" id="offcanvasScrollingLabel">
-                                    Ver todos los productos
+                                    Ver todos categorias
                                     <FontAwesomeIcon
                                         type="button"
-                                        className={`ms-4 ${isCollapsed ? 'd-none' : ''}`}
+                                        className={`ms-4 btn btn-dark p-1 rounded-5 ${isCollapsed ? 'd-none' : ''}`}
                                         icon={faChevronDown}
                                         onClick={toggleCollapse}
-                                    />
+                                        title="Ver categorias"
+                                        />
                                     <FontAwesomeIcon
                                         type="button"
-                                        className={`ms-4 ${isCollapsed ? '' : 'd-none'}`}
+                                        className={`ms-4 btn btn-dark p-1 rounded-5 ${isCollapsed ? '' : 'd-none'}`}
                                         icon={faChevronUp}
                                         onClick={toggleCollapse}
                                     />

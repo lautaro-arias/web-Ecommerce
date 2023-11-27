@@ -1,4 +1,4 @@
-import  {useEffect,useReducer} from 'react';
+import  { useEffect,useReducer,useState,useMemo } from 'react';
 import { ProductService } from '../../../../services/productAll.service'
 
 const useAllProductHandler = () => {
@@ -33,11 +33,14 @@ const useAllProductHandler = () => {
         }
     };
     //
-
-    //arrays de modelos de url - Api
-    const modelos = ['products-remeras', 'products-camperas', 'products-busos', 'products-pantalones'];
-
+    
+    const modelos = useMemo(
+        () => ['products-remeras', 'products-camperas', 'products-busos', 'products-pantalones'],
+        []
+    );
+    
     useEffect(() => {
+        //arrays de modelos de url - Api
         const productService = new ProductService(); // init service
 
         const fetchProducts = async () => {
@@ -58,7 +61,7 @@ const useAllProductHandler = () => {
         };
 
         fetchProducts();
-    }, []);
+    },[modelos])
     //
 
     // Datos obtenidos del Reducer 
@@ -77,13 +80,29 @@ const useAllProductHandler = () => {
     ];
     //
 
+    //control de vista 
+    const [visibleProducts, setVisibleProducts] = useState(4);
+
+    const show = () => {
+        setVisibleProducts(prev => prev + 4);
+    };
+
+    const visibleProductsList = allProducts.slice(0, visibleProducts);
+    //
+
     return{
     productList, 
     dispatch,
     productReducer,
     initialState,
     allProducts,
+    visibleProducts, 
+    setVisibleProducts,
+    show,
+    visibleProductsList
     }
 }
     export default useAllProductHandler 
+
+
 
