@@ -19,7 +19,7 @@ const ProductsHome = () => {
                           { visibleFilteredProducts.map((product, index) => (
                         <div className="col mt-2" key={index}>
                               <div className="card rounded-4">
-                                 <div className="image-container">
+                                <div className="image-container">
                                 <LazyLoadImage
                                         src={`https://raw.githubusercontent.com/lautaro-arias/api-web-ecommerce/fed6f04e29238ba2217b20e65b150fb288943ce2/src/assets/produsctSeason/${product.img}`}
                                         className="card-img-top img-product-components rounded-top-4"
