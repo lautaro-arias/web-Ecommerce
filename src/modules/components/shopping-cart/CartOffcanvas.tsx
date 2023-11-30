@@ -2,7 +2,7 @@ import { faArrowLeft, faBagShopping, faChevronDown, faChevronUp, faTruck, faXmar
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './styles/cartOffcanvas.css'
 import useMenuHandler from '../menu-offcanvas/handlers/menuHandler'
-import useCartProduct from './handlers/cartProduct'
+import useCartProduct from './handlers/cartHandler'
 
 const CartOffcanvas = () => {
 

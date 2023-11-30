@@ -18,7 +18,7 @@ const useCartProduct = () => {
     const [selectedProductsArray, setSelectedProductsArray] = useState<Products[]>([]);
     const [cartItemCount, setCartItemCount] = useState<number>(0);
     //
-//toma el valor de  <Products[]> || <number>
+//toma el valor de  <Products[]> || <number>  // Obtenie valores previos
     const prevSelectedProductsArray = usePrevious(selectedProductsArray);
     const prevCartItemCount = usePrevious(cartItemCount);
     //
@@ -32,7 +32,7 @@ const useCartProduct = () => {
         setSelectedProductsArray(prevProducts => [...prevProducts, product]);
     };
     //
-//actualiza el componente 
+//actualiza el componente  cuando cambien los valores 
     useEffect(() => {
     // Compara los valores previos con los actuales
         if (

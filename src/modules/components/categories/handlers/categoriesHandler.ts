@@ -1,5 +1,5 @@
 import { useReducer } from "react";
-import useAllProductHandler from "../../cards-Products/handler/productsAll";
+import useAllProductHandler from "../../cards-Products/handler/cardHandler";
 
 const initialState = {
     type:"",

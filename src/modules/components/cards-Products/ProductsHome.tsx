@@ -2,8 +2,8 @@ import { faBagShopping } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import  {  LazyLoadImage  }  from  'react-lazy-load-image-component' ;
 import Categories from '../categories/Categories'
-import useFilterProduct from '../categories/handlers/filterCategories'
-import useCartProduct from '../shopping-cart/handlers/cartProduct';
+import useFilterProduct from '../categories/handlers/categoriesHandler'
+import useCartProduct from '../shopping-cart/handlers/cartHandler';
 import './styles/cardProduct.css'
 
 
