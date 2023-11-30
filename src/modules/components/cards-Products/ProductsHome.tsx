@@ -3,12 +3,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import  {  LazyLoadImage  }  from  'react-lazy-load-image-component' ;
 import Categories from '../categories/Categories'
 import useFilterProduct from '../categories/handlers/filterCategories'
+import useCartProduct from '../shopping-cart/handlers/cartProduct';
 import './styles/cardProduct.css'
 
 
 const ProductsHome = () => {
-
-  const { handleFilter,handleShowMoreClick,visibleFilteredProducts } = useFilterProduct()
+  const { handleAddToCart } = useCartProduct()
+  const { handleFilter,handleShowMoreClick,visibleFilteredProducts } = useFilterProduct();
 
   return (
       <div className="container mb-4">
@@ -30,6 +31,8 @@ const ProductsHome = () => {
                                             type="button"
                                             icon={faBagShopping}
                                             title="Agregar"
+                                            data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                            onClick={() => handleAddToCart(product)}
                                             />
                                             </div>
                                     <div className="card-body">

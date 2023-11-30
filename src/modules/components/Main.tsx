@@ -1,19 +1,21 @@
 import Navs from '../components/nav/Navs';
 import Banner from './carousel/Banner';
 import ProductsHome from './cards-Products/ProductsHome';
+import Modalcard from './cards-Products/ModalCard';
 import Info from '../components/information/Info';
 import Footer from '../components/footer/Footer';
 import MapGoogle from './map-google/MapGoogle';
-import ModalCart from './shopping-cart/ModalCart'
+import CartOffcanvas from './shopping-cart/CartOffcanvas';
 
 function Main() {
 return (
     <div>
     <Navs/>
-    <ModalCart/>
+    <CartOffcanvas/>
     <Banner />
     <Info />
     <ProductsHome />
+    <Modalcard/>
     <MapGoogle/>
     <Footer />
     </div>

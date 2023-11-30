@@ -1,0 +1,11 @@
+
+.img-card-carro{
+height: 10rem;
+width: 100%;
+}
+
+.icon-close{
+    position: absolute;
+    right: -7px;
+    top:-10px;
+}

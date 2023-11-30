@@ -3,16 +3,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import  {  GoogleLogin  } from'@react-oauth/google' ;
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import Menu from '../menu-offcanvas/Menu';
-import CartProducts from '../shopping-cart/iconCart';
+import IconCart from '../shopping-cart/IconCart';
 import useNavHandler from './handlers/navHandler';
 import './styles/navs.css';
 
 const Navs = () => {
-const{
-    onSuccess,
-    showLoginButton,
-    handleLoginButtonClick,
-    }=useNavHandler()  
+const{ onSuccess,showLoginButton,handleLoginButtonClick }=useNavHandler()  
 
 return (
     <>
@@ -58,7 +54,7 @@ return (
                                         </ GoogleOAuthProvider>
                                     </div>
                                     )}
-                                    <CartProducts/>
+                                    <IconCart />
                                 </form>
                         </div>
                 </nav>

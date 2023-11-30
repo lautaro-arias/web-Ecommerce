@@ -31,6 +31,7 @@ const filterReducer = (state: typeof initialState, action:any) => {
 const useFilterProduct = () => { 
 
 const { allProducts } = useAllProductHandler();
+
 const [filters, dispatch] = useReducer(filterReducer, initialState);
 
 const handleFilter = (filterName:any, value:any) => {
