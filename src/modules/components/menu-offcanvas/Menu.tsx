@@ -8,12 +8,12 @@ import './styles/menu.css'
 
 const Menu = () => {
 
-const{toggleCollapse,isCollapsed}=useMenuHandler()
+const{ toggleCollapse,isCollapsed }=useMenuHandler()
 
 return (
     <div className="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex-="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
                         <div className="offcanvas-header justify-content-end">
-                                <button type="button" title="Volver" className="btn-close btn-close-dark ms-5 border border-dark rounded-5" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                <button type="button" title="Volver" className="btn-close btn-close-dark ms-5 me-1 border border-dark rounded-5" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                             </div>
                                 <div className="offcanvas-header justify-content-center">
                                     <LazyLoadImage src={logomenu} className="logo  rounded-0" alt="logo" title="Logo Nous"/>

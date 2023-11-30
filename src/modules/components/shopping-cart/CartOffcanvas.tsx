@@ -6,8 +6,9 @@ import useCartProduct from './handlers/cartProduct'
 
 const CartOffcanvas = () => {
 
-  const { newProductCart} = useCartProduct()
-  const{ toggleCollapse,isCollapsed }= useMenuHandler()
+  const { selectedProductsArray } = useCartProduct()
+  const { toggleCollapse,isCollapsed }= useMenuHandler()
+  
   return (
 
         <div className="offcanvas offcanvas-end offcanvas w-30" tabindex-="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
@@ -22,7 +23,7 @@ const CartOffcanvas = () => {
                         </button>
                   </div>
                 <div className="offcanvas-body">
-                  {  newProductCart.map((Products,index) => ( 
+                  {  selectedProductsArray.map((product,index) => ( 
                     <div className="card mb-3 rounded-2"key={index} >
                           <div className="row g-0">
                                 <div className="col-md-4">
@@ -33,10 +34,10 @@ const CartOffcanvas = () => {
                                 </div>
                               <div className="col-md-8 position-relative">
                                   <div className="card-body">
-                                      <h6 className="card-title text-start">{Products.tipo}</h6>
+                                      <h6 className="card-title text-start">{product.tipo}</h6>
                                       <ul className="list-group list-group-flush text-start">
-                                        <li className="list-group-item"><small className="text-start text-muted ">talle :{Products.talle}</small></li>
-                                        <li className="list-group-item"><small className="text-start text-muted">color :{Products.color}</small></li>
+                                        <li className="list-group-item"><small className="text-start text-muted ">talle :{product.talle}</small></li>
+                                        <li className="list-group-item"><small className="text-start text-muted">color :{product.color}</small></li>
                                       </ul>
                                   </div>
                               </div>

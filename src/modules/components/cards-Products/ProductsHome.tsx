@@ -8,7 +8,7 @@ import './styles/cardProduct.css'
 
 
 const ProductsHome = () => {
-  const { handleAddToCart } = useCartProduct()
+  const { handleClickAddOne,handleClickAddProduct } = useCartProduct()
   const { handleFilter,handleShowMoreClick,visibleFilteredProducts } = useFilterProduct();
 
   return (
@@ -32,8 +32,8 @@ const ProductsHome = () => {
                                             icon={faBagShopping}
                                             title="Agregar"
                                             data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                            onClick={() => handleAddToCart(product)}
-                                            />
+                                            onClick={() => { handleClickAddProduct(product) ; handleClickAddOne(true) } }
+                                            /> 
                                             </div>
                                     <div className="card-body">
                                           <h3 className="card-title title">{product.nombre}</h3>

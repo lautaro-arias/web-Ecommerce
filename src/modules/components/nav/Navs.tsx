@@ -8,6 +8,7 @@ import useNavHandler from './handlers/navHandler';
 import './styles/navs.css';
 
 const Navs = () => {
+    
 const{ onSuccess,showLoginButton,handleLoginButtonClick }=useNavHandler()  
 
 return (

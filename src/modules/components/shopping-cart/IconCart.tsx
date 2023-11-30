@@ -4,12 +4,11 @@ import useCartProduct from './handlers/cartProduct'
 
 const IconCart = () => {
 
-const { itemCount } = useCartProduct()
+const { cartItemCount } = useCartProduct()
 
 return (
-    <> 
         <div className="position-relative">
-                <FontAwesomeIcon
+                    <FontAwesomeIcon
                     className="p-2  btn btn-outline-dark border border-dark rounded-5 "
                     data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"
                     type="button"
@@ -17,12 +16,10 @@ return (
                     title="Mis compras"
                     />
                     <span className=" top-0 me-4  start-100 translate-middle badge rounded-pill bg-danger">
-                        {itemCount}
+                    {  cartItemCount }
                         <span className="visually-hidden ">unread messages</span>
                     </span>
         </div>
-    </>
 )
 }
-
 export default IconCart
