@@ -1,7 +1,7 @@
 const Categories= ({ handleFilter }:any) => {
   return (
-    <div className="container mt-4"> 
-        <div className="card border border-white">
+    <div className="container mt-4 "> 
+        <div className="card border-0">
               <div className="card-body">
                 <h5 className="card-title mb-4">Que te gustaria ver hoy ?</h5> 
                 <div className="row justify-content-center">

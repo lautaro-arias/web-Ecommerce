@@ -9,3 +9,10 @@ width: 100%;
     right: -7px;
     top:-10px;
 }
+
+.fondo-offcanvas{
+    background-image: url(../../../assets/cartOfCanvas/cart.png);
+    background-size: cover;
+    background-position: center;
+    height: 14rem;
+}

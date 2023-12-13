@@ -55,7 +55,7 @@ return (
                                         </ GoogleOAuthProvider>
                                     </div>
                                     )}
-                                    <IconCart />
+                                    <IconCart/>
                                 </form>
                         </div>
                 </nav>

@@ -1,10 +1,10 @@
 import { faBagShopping } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import cartItemCount   from './handlers/cartHandler'
 import useCartProduct from './handlers/cartHandler'
 
 const IconCart = () => {
-
-const { cartItemCount } = useCartProduct()
+const { cartItemCount } =useCartProduct()
 
 return (
         <div className="position-relative">
@@ -16,7 +16,8 @@ return (
                     title="Mis compras"
                     />
                     <span className=" top-0 me-4  start-100 translate-middle badge rounded-pill bg-danger">
-                    {  cartItemCount }
+                        
+                        {cartItemCount} 
                         <span className="visually-hidden ">unread messages</span>
                     </span>
         </div>

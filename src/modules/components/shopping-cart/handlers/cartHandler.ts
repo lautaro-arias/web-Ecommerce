@@ -14,25 +14,37 @@ const usePrevious = <T extends any>(value: T): T | undefined  => {
 };
 //
 const useCartProduct = () => {
-    //estados
+    //estados dataproduct - numberIcon - showOFFcanvas
     const [selectedProductsArray, setSelectedProductsArray] = useState<Products[]>([]);
-    const [cartItemCount, setCartItemCount] = useState<number>(0);
+    const [cartItemCount, setCartItemCount] = useState<number>(4);
+    const [showOffCanvas,setShowOffCanvas]=useState(false)
     //
-//toma el valor de  <Products[]> || <number>  // Obtenie valores previos
+//toma el valor de  <Products[]> || <number>  // Obtiene valores previos
     const prevSelectedProductsArray = usePrevious(selectedProductsArray);
     const prevCartItemCount = usePrevious(cartItemCount);
     //
 //agregando 1 al hacer click
     const handleClickAddOne = (increment: boolean) => {
         setCartItemCount(prevCount => (  increment ? prevCount + 1 : prevCount -1  ));
+        
     };
     //
-//Almacenar los datos del producto seleccionado en el array 
+//Almacenar los datos del producto seleccionado en el array y mostrarlos 
     const handleClickAddProduct = (product:Products) => {
         setSelectedProductsArray(prevProducts => [...prevProducts, product]);
+        console.log("selectedProductsArray",selectedProductsArray)
     };
     //
-//actualiza el componente  cuando cambien los valores 
+//Al hacer click cambia a true y muestra el buyingComponent 
+    const handleClickShow =  () => {
+        setShowOffCanvas(!showOffCanvas)
+        console.log("buyingComponent Activado",!showOffCanvas)
+    }
+    //
+//actualiza el componente  cuando cambien los valores ,
+//no en cada renderizacon 
+//este useEFFECT esta ,ya que me actualiza los valores al modificarse su estado
+//y no cuando se renderiza la pagina 
     useEffect(() => {
     // Compara los valores previos con los actuales
         if (
@@ -42,13 +54,16 @@ const useCartProduct = () => {
         console.log("cartItemCount en useEfect", cartItemCount);
         console.log("selectedProductsArray en useEfect", selectedProductsArray);
         }
-    },[cartItemCount, selectedProductsArray]);
+    },[cartItemCount, selectedProductsArray,showOffCanvas]);
     //
 return {
-    cartItemCount, 
-    selectedProductsArray,
-    handleClickAddOne,
-    handleClickAddProduct
-    }
+        handleClickShow,
+        setShowOffCanvas,
+        showOffCanvas,
+        cartItemCount, 
+        selectedProductsArray,
+        handleClickAddOne,
+        handleClickAddProduct,
+        }
 }
 export default useCartProduct

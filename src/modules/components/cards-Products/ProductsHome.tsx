@@ -6,16 +6,13 @@ import useFilterProduct from '../categories/handlers/categoriesHandler'
 import useCartProduct from '../shopping-cart/handlers/cartHandler';
 import './styles/cardProduct.css'
 
-
 const ProductsHome = () => {
-  const { handleClickAddOne,handleClickAddProduct } = useCartProduct()
+
+  const { handleClickAddOne,handleClickAddProduct,handleClickShow } = useCartProduct()
   const { handleFilter,handleShowMoreClick,visibleFilteredProducts } = useFilterProduct();
-
-  return (
+  return ( 
       <div className="container mb-4">
-
             <Categories handleFilter={handleFilter} />
-
               <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4  row-cols-xl-4">
                           { visibleFilteredProducts.map((product, index) => (
                         <div className="col mt-2" key={index}>
@@ -32,7 +29,7 @@ const ProductsHome = () => {
                                             icon={faBagShopping}
                                             title="Agregar"
                                             data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                            onClick={() => { handleClickAddProduct(product) ; handleClickAddOne(true) } }
+                                            onClick={() => { handleClickAddProduct(product) ; handleClickAddOne(true); handleClickShow() } }
                                             /> 
                                             </div>
                                     <div className="card-body">
@@ -71,5 +68,4 @@ const ProductsHome = () => {
       </div>
   )
 }
-
 export default ProductsHome
