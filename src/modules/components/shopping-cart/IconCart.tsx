@@ -1,12 +1,13 @@
 import { faBagShopping } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import cartItemCount   from './handlers/cartHandler'
-import useCartProduct from './handlers/cartHandler'
+import {useCartProduct} from './handlers/cartHandler'
 
 const IconCart = () => {
+
 const { cartItemCount } =useCartProduct()
 
 return (
+    <>
         <div className="position-relative">
                     <FontAwesomeIcon
                     className="p-2  btn btn-outline-dark border border-dark rounded-5 "
@@ -16,11 +17,12 @@ return (
                     title="Mis compras"
                     />
                     <span className=" top-0 me-4  start-100 translate-middle badge rounded-pill bg-danger">
-                        
                         {cartItemCount} 
                         <span className="visually-hidden ">unread messages</span>
                     </span>
+                    
         </div>
+        </>
 )
 }
 export default IconCart

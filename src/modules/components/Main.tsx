@@ -6,20 +6,25 @@ import Info from '../components/information/Info';
 import Footer from '../components/footer/Footer';
 import MapGoogle from './map-google/MapGoogle';
 import CartOffcanvas from './shopping-cart/CartOffcanvas';
+import { CartProvider } from '../components/shopping-cart/handlers/cartHandler';
 
-function Main() {
+const Main = () => {
+    
 return (
-    <div>
+    <> 
+    <CartProvider>
     <Navs/>
-    <CartOffcanvas/>
+    <CartOffcanvas />
     <Banner />
     <Info />
     <ProductsHome />
     <Modalcard/>
     <MapGoogle/>
     <Footer />
-    </div>
+    </CartProvider>
+    </>
 );
 }
 
-export default Main;
+export default Main
+

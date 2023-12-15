@@ -1,14 +1,14 @@
-import { faBagShopping } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBagShopping } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import  {  LazyLoadImage  }  from  'react-lazy-load-image-component' ;
-import Categories from '../categories/Categories'
-import useFilterProduct from '../categories/handlers/categoriesHandler'
-import useCartProduct from '../shopping-cart/handlers/cartHandler';
-import './styles/cardProduct.css'
+import Categories from '../categories/Categories';
+import useFilterProduct from '../categories/handlers/categoriesHandler';
+import { useCartProduct } from '../shopping-cart/handlers/cartHandler';
+import './styles/cardProduct.css';
 
 const ProductsHome = () => {
 
-  const { handleClickAddOne,handleClickAddProduct,handleClickShow } = useCartProduct()
+  const { handleClickAddOne,handleClickAddProduct,handleClickShow } = useCartProduct();
   const { handleFilter,handleShowMoreClick,visibleFilteredProducts } = useFilterProduct();
   return ( 
       <div className="container mb-4">
@@ -68,4 +68,4 @@ const ProductsHome = () => {
       </div>
   )
 }
-export default ProductsHome
+export default ProductsHome ;
