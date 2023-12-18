@@ -1,6 +1,7 @@
 import { Products } from "../model/ProductModel"
 
 export interface CartContextProps {
+    handleClickRemoveProduct: any;
     selectedProductsArray: Products[];
     cartItemCount: number;
     setShowOffCanvas: (value: boolean) => void;

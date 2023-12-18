@@ -3,6 +3,8 @@ import { useCartProduct } from "./handlers/cartHandler";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faChevronUp, faTruck, faXmark } from "@fortawesome/free-solid-svg-icons";
 
+///COMPLETAR LOS INPUTS CON LOS DATOS EXTRAIDOS DE EL cardProduct seleccionado 
+//manejar esos datos segun se necesite
 
     export const NoBuyingComponent = () => { 
         return (
@@ -18,7 +20,7 @@ import { faChevronDown, faChevronUp, faTruck, faXmark } from "@fortawesome/free-
 
         export const BuyingComponent = () => { 
             
-        const { selectedProductsArray } = useCartProduct()
+        const { selectedProductsArray,handleClickRemoveProduct,handleClickAddOne} = useCartProduct()
         const { toggleCollapse,isCollapsed }= useMenuHandler()
         return ( 
                     <div className="offcanvas-body">
@@ -27,11 +29,13 @@ import { faChevronDown, faChevronUp, faTruck, faXmark } from "@fortawesome/free-
                                 <div className="row g-0">
                                     <div className="col-md-4">
                                             <button type="button" className="btn btn-dark  border border-dark rounded-5 icon-close">
-                                                <FontAwesomeIcon icon={faXmark} />
+                                                <FontAwesomeIcon icon={faXmark} 
+                                                onClick={() => { handleClickRemoveProduct(index); handleClickAddOne(false)  }} 
+                                                />
                                             </button>
                                             <img src={`https://raw.githubusercontent.com/lautaro-arias/api-web-ecommerce/fed6f04e29238ba2217b20e65b150fb288943ce2/src/assets/produsctSeason/${product.img}`} 
                                             className="img-fluid  img-card-carro" alt="imgProducto" />
-                                    </div>
+                                        </div>
                                     <div className="col-md-8 position-relative">
                                         <div className="card-body">
                                             <h4 className="card-title title text-start">{product.nombre} 

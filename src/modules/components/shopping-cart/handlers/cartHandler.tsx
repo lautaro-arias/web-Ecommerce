@@ -4,11 +4,6 @@ import { useState, createContext, useContext} from "react";
 
 const CartContext = createContext<CartContextProps | undefined>(undefined);
 
-
-//REVISAR : QUE AL APRETAR HANDLECLICK SHOW MAS DE UNA VES NO CAMBIE EL VALOR SIGA EN TRUE 
-//AGREGAR PARA PODER ELIMINAR EL CARD DEL CARToFFcANVAS SEGUN SE QUIERA 
-//QUE SOLO SE PONGA EN FALSE SI NO HAY NADA EN OFFCANVAS
-
 export const CartProvider = ({ children }:any) => {
     //estados dataproduct - numberIcon - showOFFcanvas
     const [selectedProductsArray, setSelectedProductsArray] = useState<Products[]>([]);
@@ -25,24 +20,32 @@ export const CartProvider = ({ children }:any) => {
 //Almacenar los datos del producto seleccionado en el array y mostrarlos 
     const handleClickAddProduct = (product:Products) => {
         setSelectedProductsArray(prevProducts => [...prevProducts, product]);
-        console.log("selectedProductsArray",selectedProductsArray)
     };
     //
 //Al hacer click cambia a true y muestra el buyingComponent 
-    const handleClickShow =  () => {
-        setShowOffCanvas(!showOffCanvas)
-        console.log("buyingComponent Activado",!showOffCanvas)
-    }
+const handleClickShow = () => {
+        setShowOffCanvas(true); 
+    };
+// Delete product- update array - si es false active show NoBuyinComponent
+    const handleClickRemoveProduct = (index: number) => {
+        const updatedProductsArray = [...selectedProductsArray];
+        updatedProductsArray.splice(index, 1); // Elimina el elemento en el índice dado
+        setSelectedProductsArray(updatedProductsArray);
+        if ( updatedProductsArray.length === 0) {
+            setShowOffCanvas(false); 
+        } 
+    };
     //
 
     const contextValue: CartContextProps = {
-        selectedProductsArray,
         cartItemCount,
-        setShowOffCanvas,
         showOffCanvas,
+        setShowOffCanvas,
+        selectedProductsArray,
         handleClickShow,
         handleClickAddOne,
         handleClickAddProduct,
+        handleClickRemoveProduct,
     };
 
     return (
