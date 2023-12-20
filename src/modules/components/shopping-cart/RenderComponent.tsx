@@ -2,11 +2,15 @@ import useMenuHandler from "../menu-offcanvas/handlers/menuHandler";
 import { useCartProduct } from "./handlers/cartHandler";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faChevronUp, faTruck, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { initMercadoPago, Wallet } from '@mercadopago/sdk-react'
+
 
 ///COMPLETAR LOS INPUTS CON LOS DATOS EXTRAIDOS DE EL cardProduct seleccionado 
 //manejar esos datos segun se necesite
 
     export const NoBuyingComponent = () => { 
+        initMercadoPago('TEST-4268166246905557-121907-d80f0d8df86261eeb064acc9165d864e-338813628')
+
         return (
                 <>
                 <div className="card fondo-offcanvas border-0  mt-3 bg-transparent">
@@ -14,6 +18,9 @@ import { faChevronDown, faChevronUp, faTruck, faXmark } from "@fortawesome/free-
                         </div>
                     </div> 
                         <a className="text-dark mt-4" data-bs-dismiss="offcanvas" aria-label="Close" href="close">ir comprar</a>
+                        <div id="wallet_container">  
+                        </div>
+                        <Wallet initialization={{ preferenceId: '7671113606844887' }} />
                 </>
         )
     }

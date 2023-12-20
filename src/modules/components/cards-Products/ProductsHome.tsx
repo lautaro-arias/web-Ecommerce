@@ -4,14 +4,19 @@ import  {  LazyLoadImage  }  from  'react-lazy-load-image-component' ;
 import Categories from '../categories/Categories';
 import useFilterProduct from '../categories/handlers/categoriesHandler';
 import { useCartProduct } from '../shopping-cart/handlers/cartHandler';
+import { initMercadoPago, Wallet } from '@mercadopago/sdk-react'
 import './styles/cardProduct.css';
 
 const ProductsHome = () => {
+  initMercadoPago('TEST-75b16117-ea28-482e-9ade-d71742b68044')
 
   const { handleClickAddOne,handleClickAddProduct,handleClickShow } = useCartProduct();
   const { handleFilter,handleShowMoreClick,visibleFilteredProducts } = useFilterProduct();
   return ( 
       <div className="container mb-4">
+         <div id="wallet_container"> </div>
+         <Wallet initialization={{ preferenceId: '<PREFERENCE_ID>', redirectMode: 'blank' }} />
+        
             <Categories handleFilter={handleFilter} />
               <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4  row-cols-xl-4">
                           { visibleFilteredProducts.map((product, index) => (
