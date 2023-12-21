@@ -7,21 +7,24 @@ import Footer from '../components/footer/Footer';
 import MapGoogle from './map-google/MapGoogle';
 import CartOffcanvas from './shopping-cart/CartOffcanvas';
 import { CartProvider } from '../components/shopping-cart/handlers/cartHandler';
+import { PaymentProvider } from '../components/shopping-cart/handlers/paymentHandler';
 
 const Main = () => {
     
 return (
     <> 
-    <CartProvider>
-    <Navs/>
-    <CartOffcanvas />
-    <Banner />
-    <Info />
-    <ProductsHome />
-    <Modalcard/>
-    <MapGoogle/>
-    <Footer />
-    </CartProvider>
+    <PaymentProvider>
+        <CartProvider>
+            <Navs/>
+            <CartOffcanvas />
+            <Banner />
+            <Info />
+            <ProductsHome />
+            <Modalcard/>
+            <MapGoogle/>
+            <Footer />
+        </CartProvider>
+    </PaymentProvider>
     </>
 );
 }
