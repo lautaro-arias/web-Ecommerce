@@ -1,12 +1,7 @@
-import Footer from "../footer/Footer"
-import Checkout from "../shopping-cart/paymentComponents/Checkout"
-import FooterPay from "../shopping-cart/paymentComponents/FooterPay"
-import Payment from "../shopping-cart/paymentComponents/Payment"
-
 const Categories= ({ handleFilter }:any) => {
+
   return (
-    <>
-   { /* <div className="container mt-4 "> 
+    <div className="container mt-4 "> 
         <div className="card border-0">
               <div className="card-body">
                 <h5 className="card-title mb-4">Que te gustaria ver hoy ?</h5> 
@@ -85,14 +80,7 @@ const Categories= ({ handleFilter }:any) => {
                 </div>
           </div>
           
-  </div>*/}
-  <div>
-  <Checkout />
-                            <Payment />
-                            <FooterPay />
   </div>
-                           
-    </>
   )
 }
 

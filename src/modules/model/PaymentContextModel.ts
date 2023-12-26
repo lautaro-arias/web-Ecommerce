@@ -1,14 +1,11 @@
 
 export interface PaymentContextProps {
     handleClick: any;
-    renderCheckoutButton: any;
-    handleOnReady: any;
-    isReady: any;
+    handleId: any;
+    isReadyShow: any;
     isLoading: any;
-    isVisible: any;
     preferenceId: any;
-    paymentClass: any;
-    shoppingCartClass: any;
+    setIsReadyShow: any;
     updatePrice: any;
     orderData: any;
     renderSpinner: any;

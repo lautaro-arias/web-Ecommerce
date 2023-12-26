@@ -1,12 +1,14 @@
 import { usePayment } from "../handlers/paymentHandler";
+import { Wallet } from '@mercadopago/sdk-react';
+
 
 const Payment = () => {
-  const {  paymentClass,orderData,renderCheckoutButton,preferenceId } = usePayment()
+  const { orderData,preferenceId,handleId } = usePayment()
   return (
-    <div className={paymentClass}>
+    <div>
       <div className="container_payment ">
         <div className="block-heading">
-          <h2>Checkout Payment</h2>
+          <h2> PAYMENT COMPONENT</h2>
           <p>This is an example of a Mercado Pago integration</p>
         </div>
         <div className="form-payment bg-primary">
@@ -25,7 +27,9 @@ const Payment = () => {
           </div>
           <div className="payment-details">
             <div className="form-group col-sm-12">
-              {renderCheckoutButton(preferenceId)}
+
+                <Wallet  onReady={() => handleId(preferenceId)} initialization={{ preferenceId:preferenceId }} />
+
             </div>
           </div>
         </div>

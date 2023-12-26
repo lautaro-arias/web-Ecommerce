@@ -1,14 +1,15 @@
 import { usePayment } from "../handlers/paymentHandler";
 import product from "../../../assets/img/product.png"
 
+
 const Checkout = () => {
-  const { shoppingCartClass,updatePrice,orderData,handleClick } = usePayment()
+  const { updatePrice,orderData,handleClick } = usePayment()
 
   return (
-    <section className={shoppingCartClass}>
+    <section >
       <div className="container" id="container bg-danger">
         <div className="block-heading">
-          <h2>Shopping Cart</h2>
+          <h2>CHECKOUT COMPONET </h2>
           <p>This is an example of Checkout Pro integration of Mercado Pago</p>
         </div>
         <div className="content bg-danger">
@@ -72,7 +73,7 @@ const Checkout = () => {
                   onClick={handleClick}
                   id="checkout-btn"
                 >
-                  Checkout
+                  Ir a payment
                 </button>
               </div>
             </div>

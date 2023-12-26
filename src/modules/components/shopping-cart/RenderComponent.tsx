@@ -5,6 +5,8 @@ import { faChevronDown, faChevronUp, faTruck, faXmark } from "@fortawesome/free-
 import Checkout from "./paymentComponents/Checkout";
 import Payment from "./paymentComponents/Payment";
 import Footer from "./paymentComponents/FooterPay";
+import ModalPayment from "./paymentComponents/MainPaymet";
+import { Link } from "react-router-dom";
 
         export const NoBuyingComponent = () => { 
             return (
@@ -69,10 +71,10 @@ import Footer from "./paymentComponents/FooterPay";
                                     <div className='card-footer border border-top-0 bg-white'>
                                         <ul  className="list-group list-group-flush text-start">
                                                 <li className="list-group-item d-flex justify-content-between">Cantidad
-                                                    <input className=" text-center border border-dark  border-top-0 border-start-0 border-end-0 w-50" type="number"></input>
+                                                    <input className=" text-center border border-dark  border-top-0 border-start-0 border-end-0 w-50" type="number" defaultValue={1} min={1}></input>
                                                 </li>
                                                     <li className="list-group-item d-flex justify-content-between">Sub total
-                                                        <input className=" text-center border border-dark  border-top-0 border-start-0 border-end-0 w-50" type="text"></input>
+                                                        <a className="text-decoration-none text-dark text-center border border-dark  border-top-0 border-start-0 border-end-0 w-50" type="text">{product.precio}</a>
                                                     </li>
                                                     <li className="list-group-item">
                                                         Envio  
@@ -105,19 +107,19 @@ import Footer from "./paymentComponents/FooterPay";
                                                     </div>
                                                 </div>
                                                 <li className="list-group-item d-flex justify-content-between">Total
-                                                    <input className="border border-dark  border-top-0 border-start-0 border-end-0 text-center  w-50" type="text"></input>
+                                                    <a className="text-decoration-none text-dark border border-dark  border-top-0 border-start-0 border-end-0 text-center  w-50" type="text">{product.precio}</a>
                                                 </li>
                                             </ul>
                                     </div>
                                 </div>
                         </div>
                         ))}
-                        <li className="btn btn-dark w-100 border border-secondary border-3 rounded-5 mb-3" title="Comprar"> 
+                        <Link to={'/payment'} className="btn btn-dark w-100 border border-secondary border-3 rounded-5 mb-3" 
+                        title="Comprar"   type="button"> 
                             comprar
-                        </li>
+                        </Link>
                         <a className="text-dark "  data-bs-dismiss="offcanvas" aria-label="Close" href="close">Seguir comprando</a>
 
-                        
             </div>
         )
     }

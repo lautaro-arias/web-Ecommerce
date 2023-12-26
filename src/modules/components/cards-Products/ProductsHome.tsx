@@ -13,9 +13,9 @@ const ProductsHome = () => {
   const { handleClickAddOne,handleClickAddProduct,handleClickShow } = useCartProduct();
   const { handleFilter,handleShowMoreClick,visibleFilteredProducts } = useFilterProduct();
   return ( 
-      <div className="container mb-4">
-         <div id="wallet_container"> </div>
-         <Wallet initialization={{ preferenceId: '<PREFERENCE_ID>', redirectMode: 'blank' }} />
+     <div className="container mb-4">
+         {/*<div id="wallet_container"> </div>
+          <Wallet initialization={{ preferenceId: '<PREFERENCE_ID>', redirectMode: 'blank' }} /> */}
         
             <Categories handleFilter={handleFilter} />
               <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4  row-cols-xl-4">
@@ -70,7 +70,7 @@ const ProductsHome = () => {
                           onClick={handleShowMoreClick}>Ver más</li>
                         </div>
               </div>
-      </div>
+                          </div>
   )
 }
 export default ProductsHome ;
