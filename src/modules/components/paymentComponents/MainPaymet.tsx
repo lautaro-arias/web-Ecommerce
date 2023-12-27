@@ -1,17 +1,16 @@
 import FooterPay from './FooterPay'
-import Navs from '../../nav/Navs'
-import Checkout from './Checkout'
+//import Checkout from './Checkout'
 import Payment from './Payment'
-import {  usePayment } from '../handlers/paymentHandler'
+import {  usePayment } from './handler/paymentHandler'
 
 const   MainPayment = () => {
   const { isReadyShow }= usePayment()
   return (
   
     <div>
-                  {
-                    isReadyShow  ? <Checkout/> : <Payment/> 
-                  }
+                  
+                    <Payment/> 
+                  
         <FooterPay/>
     </div>
    

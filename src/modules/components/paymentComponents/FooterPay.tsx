@@ -1,18 +1,18 @@
 import horizontal_logo from '../../../assets/img/horizontal_logo.png'
-const Footer = () => {
+const FooterPay = () => {
     return (
-      <footer>
+      <footer className=''>
         <div className="footer_logo">
           <img
             id="horizontal_logo"
-            alt="image of the logo"
+            alt="mercado logo"
             src={horizontal_logo}
           />
         </div>
         <div className="footer_text">
           <p>Developers Site:</p>
           <p>
-            <a href="https://developers.mercadopago.com" target="_blank">
+            <a href="https://developers.mercadopago.com" >
               https://developers.mercadopago.com
             </a>
           </p>
@@ -22,4 +22,4 @@ const Footer = () => {
   };
 
 
-export default Footer;
+export default FooterPay;

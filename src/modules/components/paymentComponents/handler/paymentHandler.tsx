@@ -1,19 +1,19 @@
 import { PaymentContextProps } from '../../../model/PaymentContextModel';
-import { createContext,useState,useContext, useEffect } from 'react';
+import { createContext,useState,useContext } from 'react';
 import { initMercadoPago } from '@mercadopago/sdk-react';
-import { SpinnerCircular } from 'spinners-react';
+import { Products } from "../../../model/ProductModel"
+import { useShoppingProduct } from '../../shopping-cart/handlers/shoppingHandler';
 
 const PaymentData = createContext<PaymentContextProps | undefined>(undefined);
-initMercadoPago('TEST-02bcb132-3f88-405d-a992-af590fa54955')
+initMercadoPago('TEST-a90f16ef-c677-4a2b-a8b3-de9544cae21d');//TEST-75b16117-ea28-482e-9ade-d71742b68044 // TEST-a90f16ef-c677-4a2b-a8b3-de9544cae21d
 
-//ANDA EL CHECKOUT PERO FALTAN CORREGUIR ERRORES / 
-//CREAR UN NUEVO COMPONENTE QUE AL APRETAR COMPRAR ME RENDERICE A PAGAR CON MERCADO PAGO
 
 export const PaymentProvider = ({ children }:any) => {
     const [preferenceId, setPreferenceId] = useState();
     const [isLoading, setIsLoading] = useState(false);
     const [orderData, setOrderData] = useState({ quantity: "1", price: "10", amount: 10, description: "Some book" });
     const [isReadyShow, setIsReadyShow] = useState(true);
+    const [buyinProduct,setBuyinProduct] = useState<Products[]>([]) ;
 
     const handleClick = async () => {
         try {
@@ -30,29 +30,18 @@ export const PaymentProvider = ({ children }:any) => {
             
         });
 
-        console.log("Response",response)
-        const data = await response.json();
-        console.log("DATA ID",data.id)
-        console.log("set prefecense",setPreferenceId(data.id))
-        console.log("preferenceId",preferenceId)
-        setPreferenceId(data.id)
-        return data;
+        const { id } = await response.json();
+        setPreferenceId(id);
         } catch (error) {
         console.error(error);
         } 
     };
 
-    //
-    const handleId = () => {
-        console.log()
-        setPreferenceId(preferenceId);
-    }//
-
-    //
-    useEffect(() => {
-    
-    }, [preferenceId])
-    //  ?
+      const handleClickBuyin = ( products:Products) => {
+        console.log( products)
+        setBuyinProduct([products])
+        
+     }
 
 
 ////revisar
@@ -62,28 +51,19 @@ export const PaymentProvider = ({ children }:any) => {
         setOrderData({ ...orderData, quantity, amount });
     }
 
-
-    const renderSpinner = () => {
-        if (isLoading) {
-        return (
-            <SpinnerCircular  enabled={false} />
-        )
-        }
-    }
-////
-
     const contextValue: PaymentContextProps = {
+        handleClickBuyin,
         handleClick,
-        handleId,
         isReadyShow,
         isLoading,
         preferenceId,
         updatePrice,
         orderData,
-        renderSpinner,
         setIsReadyShow,
         setPreferenceId,
-        setIsLoading
+        setIsLoading,
+        buyinProduct,
+        setBuyinProduct,
     };
 
     return (

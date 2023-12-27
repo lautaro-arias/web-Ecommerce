@@ -1,6 +1,6 @@
 import { faBagShopping } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {useCartProduct} from './handlers/cartHandler'
+import {useCartProduct} from './handlers/shoppingHandler'
 
 const IconCart = () => {
 

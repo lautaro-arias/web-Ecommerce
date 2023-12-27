@@ -1,40 +1,107 @@
-import useMenuHandler from "../menu-offcanvas/handlers/menuHandler";
-import { useShoppingProduct } from "./handlers/shoppingHandler";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown, faChevronUp, faTruck, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
-import { usePayment } from "../paymentComponents/handler/paymentHandler";
+import { usePayment } from "./handler/paymentHandler";
+import product from "../../../assets/img/product.png"
+//import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+//import { faChevronDown, faChevronUp, faTruck, faXmark } from "@fortawesome/free-solid-svg-icons";
+//import useMenuHandler from "../../menu-offcanvas/handlers/menuHandler";
+//import { useCartProduct } from "../handlers/shoppingHandler";
+//import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, Key } from "react";
 
-        export const NoBuyingComponent = () => { 
-            return (
-                    <>
-                    <div className="card fondo-offcanvas border-0  mt-3 bg-transparent">
-                            <div className="card-body">
-                            </div>
-                        </div> 
-                            <h6  className="text-dark mt-4" data-bs-dismiss="offcanvas" aria-label="Close">ir comprar</h6>
-                            
-                    </>
-            )
-        }
 
-        export const BuyingComponent = () => { 
-        const { selectedProductsArray,handleClickRemoveProduct,handleClickAddOne} = useShoppingProduct()
-        const { toggleCollapse,isCollapsed }= useMenuHandler()
-        const { handleClickBuyin,handleClick }= usePayment()  
-        return ( 
-                    <div className="offcanvas-body">
-                        {  selectedProductsArray.map((product,index) => ( 
+const Checkout = () => {
+  const { updatePrice,orderData,handleClick } = usePayment()
+  //const { toggleCollapse,isCollapsed }= useMenuHandler()
+  //const { handleClickBuyin,buyinProduct }= usePayment()
+  //const { handleClickRemoveProduct} = useCartProduct()
+
+
+
+  return (
+    <section >
+      <div className="container" id="container bg-danger">
+        <div className="block-heading">
+          <h2>CHECKOUT COMPONET </h2>
+          <p>This is an example of Checkout Pro integration of Mercado Pago</p>
+        </div>
+        <div className="content bg-danger">
+          <div className="row">
+            <div className="col-md-12 col-lg-8">
+              <div className="items">
+                <div className="product">
+                  <div className="info">
+                    <div className="product-details">
+                      <div className="row justify-content-md-center">
+                        <div className="col-md-3">
+                          <img
+                            className="img-fluid mx-auto d-block image"
+                            alt=" product"
+                            src={product}
+                          />
+                        </div>
+                        <div className="col-md-4 product-detail">
+                          <h5>Product</h5>
+                          <div className="product-info">
+                            <b>Description: </b>
+                            <span id="product-description">Some book</span>
+                            <br />
+                            <b>Author: </b>Dale Carnegie
+                            <br />
+                            <b>Number of pages: </b>336
+                            <br />
+                            <b>Price:</b> $ <span id="unit-price">10</span>
+                            <br />
+                          </div>
+                        </div>
+                        <div className="col-md-3 product-detail">
+                          <label htmlFor="quantity">
+                            <b>Quantity</b>
+                          </label>
+                          <input
+                            onChange={updatePrice}
+                            type="number"
+                            id="quantity"
+                            value={orderData.quantity}
+                            min="1"
+                            className="form-control"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-12 col-lg-4">
+              <div className="summary">
+                <h3>Cart</h3>
+                <div className="summary-item">
+                  <span className="text">Subtotal</span>
+                  <span className="price" id="cart-total">${orderData.amount}</span>
+                </div>
+                <button
+                  className="btn btn-primary btn-lg btn-block"
+                  type="button"
+                  onClick={handleClick}
+                  id="checkout-btn"
+                >
+                  Ir a payment
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/*<div className="offcanvas-body">
+                        { buyinProduct.map((product:any,index:any) => ( 
                         <div className="card mb-3 rounded-2 "key={index}  >
                                 <div className="row g-0">
                                     <div className="col-md-4">
-                                            <button type="button" className="btn btn-dark  border border-dark rounded-5 icon-close pointer">
+                                            <button type="button" className="btn btn-dark  border border-dark rounded-5 icon-close">
                                                 <FontAwesomeIcon icon={faXmark} 
-                                                onClick={() => { handleClickRemoveProduct(index); handleClickAddOne(false);}} 
+                                                onClick={() => { handleClickRemoveProduct(index); }} 
                                                 />
                                             </button>
-                                            <img 
-                                            src={`https://raw.githubusercontent.com/lautaro-arias/api-web-ecommerce/fed6f04e29238ba2217b20e65b150fb288943ce2/src/assets/produsctSeason/${product.img}`} 
+                                            <img src={`https://raw.githubusercontent.com/lautaro-arias/api-web-ecommerce/fed6f04e29238ba2217b20e65b150fb288943ce2/src/assets/produsctSeason/${product.img}`} 
                                             className="img-fluid  img-card-carro" alt="imgProducto" />
                                         </div>
                                     <div className="col-md-8 position-relative">
@@ -111,18 +178,17 @@ import { usePayment } from "../paymentComponents/handler/paymentHandler";
                                             </ul>
                                     </div>
                                 </div>
-                                <Link to={'/payment'} className="btn btn-dark w-100 border border-secondary border-3 rounded-5 mb-3" 
-                        title="Comprar"   type="button"   onClick={() => { handleClick(); handleClickBuyin(product) }}>
-                            Comprar
-                        </Link>
                         </div>
-                        
                         ))}
-                        
                         <a className="text-dark "  data-bs-dismiss="offcanvas" aria-label="Close" href="close">Seguir comprando</a>
 
-            </div>
-        )
-    }
+                        </div>*/}
 
 
+
+
+    </section>
+  );
+};
+
+export default Checkout;

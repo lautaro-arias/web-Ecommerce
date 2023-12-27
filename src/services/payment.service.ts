@@ -1,4 +1,4 @@
-import { usePayment } from "../modules/components/shopping-cart/handlers/paymentHandler";
+import { usePayment } from "../modules/components/shopping-cart/paymentComponents/handler/paymentHandler";
 
 export const FetchPaymentData = async () => {
     /*const {  setIsLoading,orderData,setPreferenceId } = usePayment()

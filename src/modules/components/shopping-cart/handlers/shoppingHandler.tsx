@@ -9,7 +9,7 @@ export const CartProvider = ({ children }:any) => {
     const [selectedProductsArray, setSelectedProductsArray] = useState<Products[]>([]);
     const [cartItemCount, setCartItemCount] = useState<number>(0);
     const [showOffCanvas,setShowOffCanvas]=useState(false)
-    //
+    // 
 
 //agregando 1 al hacer click
     const handleClickAddOne = (increment: boolean) => {
@@ -57,7 +57,7 @@ const handleClickShow = () => {
     )
 };
 
-export const useCartProduct = () => {
+export const useShoppingProduct = () => {
     const context = useContext(CartContext);
     if (!context) {
     throw new Error('useCart must be used within a CartProvider');

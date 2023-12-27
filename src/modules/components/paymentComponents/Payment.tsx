@@ -1,9 +1,9 @@
-import { usePayment } from "../handlers/paymentHandler";
+import { usePayment } from "./handler/paymentHandler";
 import { Wallet } from '@mercadopago/sdk-react';
 
 
 const Payment = () => {
-  const { orderData,preferenceId,handleId } = usePayment()
+  const { orderData,preferenceId } = usePayment()
   return (
     <div>
       <div className="container_payment ">
@@ -27,9 +27,9 @@ const Payment = () => {
           </div>
           <div className="payment-details">
             <div className="form-group col-sm-12">
-
-                <Wallet  onReady={() => handleId(preferenceId)} initialization={{ preferenceId:preferenceId }} />
-
+              <button> 
+                  <Wallet  initialization={{ preferenceId , redirectMode: 'blank' }} />
+                  </button>
             </div>
           </div>
         </div>
