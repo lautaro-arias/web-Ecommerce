@@ -1,11 +1,11 @@
 import { faArrowLeft} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { BuyingComponent,NoBuyingComponent } from './RenderComponent'
-import { useCartProduct } from './handlers/shoppingHandler'
+import { useShoppingProduct } from './handlers/shoppingHandler'
 import './styles/cartOffcanvas.css'
 
 const CartOffcanvas = () => {
-  const { showOffCanvas,cartItemCount}= useCartProduct()
+  const { showOffCanvas,cartItemCount}= useShoppingProduct()
   return (
           <div className="offcanvas offcanvas-end offcanvas w-30" tabindex-="-1" id="offcanvasRight"   data-bs-scroll="true" data-bs-backdrop="false" aria-labelledby="offcanvasRightLabel">
                 <div className="offcanvas-header ">

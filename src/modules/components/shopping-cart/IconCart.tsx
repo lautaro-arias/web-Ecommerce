@@ -1,10 +1,10 @@
 import { faBagShopping } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {useCartProduct} from './handlers/shoppingHandler'
+import {useShoppingProduct} from './handlers/shoppingHandler'
 
 const IconCart = () => {
 
-const { cartItemCount } =useCartProduct()
+const { cartItemCount } =useShoppingProduct()
 
 return (
     <>

@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Main from '../modules/components/Main';
-import MainPayment from '../modules/components/shopping-cart/paymentComponents/MainPaymet';
-import { PaymentProvider } from '../modules/components/shopping-cart/paymentComponents/handler/paymentHandler';
+import MainPayment from '../modules/components/paymentComponents/MainPaymet';
+import { PaymentProvider } from '../modules/components/paymentComponents/handler/paymentHandler';
 import { CartProvider } from '../modules/components/shopping-cart/handlers/shoppingHandler';
 
 const Urls = () => {

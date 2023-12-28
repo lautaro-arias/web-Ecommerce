@@ -1,8 +1,6 @@
 import { PaymentContextProps } from '../../../model/PaymentContextModel';
 import { createContext,useState,useContext } from 'react';
 import { initMercadoPago } from '@mercadopago/sdk-react';
-import { Products } from "../../../model/ProductModel"
-import { useShoppingProduct } from '../../shopping-cart/handlers/shoppingHandler';
 
 const PaymentData = createContext<PaymentContextProps | undefined>(undefined);
 initMercadoPago('TEST-a90f16ef-c677-4a2b-a8b3-de9544cae21d');//TEST-75b16117-ea28-482e-9ade-d71742b68044 // TEST-a90f16ef-c677-4a2b-a8b3-de9544cae21d
@@ -13,7 +11,6 @@ export const PaymentProvider = ({ children }:any) => {
     const [isLoading, setIsLoading] = useState(false);
     const [orderData, setOrderData] = useState({ quantity: "1", price: "10", amount: 10, description: "Some book" });
     const [isReadyShow, setIsReadyShow] = useState(true);
-    const [buyinProduct,setBuyinProduct] = useState<Products[]>([]) ;
 
     const handleClick = async () => {
         try {
@@ -37,11 +34,7 @@ export const PaymentProvider = ({ children }:any) => {
         } 
     };
 
-      const handleClickBuyin = ( products:Products) => {
-        console.log( products)
-        setBuyinProduct([products])
-        
-     }
+    
 
 
 ////revisar
@@ -52,7 +45,6 @@ export const PaymentProvider = ({ children }:any) => {
     }
 
     const contextValue: PaymentContextProps = {
-        handleClickBuyin,
         handleClick,
         isReadyShow,
         isLoading,
@@ -62,8 +54,6 @@ export const PaymentProvider = ({ children }:any) => {
         setIsReadyShow,
         setPreferenceId,
         setIsLoading,
-        buyinProduct,
-        setBuyinProduct,
     };
 
     return (

@@ -3,7 +3,6 @@ import { useShoppingProduct } from "./handlers/shoppingHandler";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faChevronUp, faTruck, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import { usePayment } from "../paymentComponents/handler/paymentHandler";
 
         export const NoBuyingComponent = () => { 
             return (
@@ -21,7 +20,6 @@ import { usePayment } from "../paymentComponents/handler/paymentHandler";
         export const BuyingComponent = () => { 
         const { selectedProductsArray,handleClickRemoveProduct,handleClickAddOne} = useShoppingProduct()
         const { toggleCollapse,isCollapsed }= useMenuHandler()
-        const { handleClickBuyin,handleClick }= usePayment()  
         return ( 
                     <div className="offcanvas-body">
                         {  selectedProductsArray.map((product,index) => ( 
@@ -111,13 +109,16 @@ import { usePayment } from "../paymentComponents/handler/paymentHandler";
                                             </ul>
                                     </div>
                                 </div>
-                                <Link to={'/payment'} className="btn btn-dark w-100 border border-secondary border-3 rounded-5 mb-3" 
-                        title="Comprar"   type="button"   onClick={() => { handleClick(); handleClickBuyin(product) }}>
+                                <>
+                        </>
+                        </div>
+                       
+                        ))}
+                        <Link to={'/payment'} className="btn btn-dark w-100 border border-secondary border-3 rounded-5 mb-3" 
+                        title="Comprar"   type="button" >
                             Comprar
                         </Link>
-                        </div>
-                        
-                        ))}
+                         
                         
                         <a className="text-dark "  data-bs-dismiss="offcanvas" aria-label="Close" href="close">Seguir comprando</a>
 

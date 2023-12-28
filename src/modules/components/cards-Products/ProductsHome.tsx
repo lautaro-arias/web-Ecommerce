@@ -3,12 +3,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import  {  LazyLoadImage  }  from  'react-lazy-load-image-component' ;
 import Categories from '../categories/Categories';
 import useFilterProduct from '../categories/handlers/categoriesHandler';
-import { useCartProduct } from '../shopping-cart/handlers/shoppingHandler';
+import { useShoppingProduct } from '../shopping-cart/handlers/shoppingHandler';
 import './styles/cardProduct.css';
 
 const ProductsHome = () => {
 
-  const { handleClickAddOne,handleClickAddProduct,handleClickShow } = useCartProduct();
+  const { handleClickAddOne,handleClickAddProduct,handleClickShow } = useShoppingProduct();
   const { handleFilter,handleShowMoreClick,visibleFilteredProducts } = useFilterProduct();
   return ( 
      <div className="container mb-4">

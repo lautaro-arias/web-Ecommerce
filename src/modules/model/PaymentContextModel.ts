@@ -1,6 +1,5 @@
 
 export interface PaymentContextProps {
-    handleClickBuyin: any;
     handleClick: any;
     isReadyShow: any;
     isLoading: any;
@@ -10,6 +9,5 @@ export interface PaymentContextProps {
     orderData: any;
     setPreferenceId: any;
     setIsLoading: any;
-    buyinProduct: any;
-    setBuyinProduct: any;
+   
 }

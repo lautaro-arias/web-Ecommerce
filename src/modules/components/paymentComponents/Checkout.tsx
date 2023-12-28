@@ -3,7 +3,7 @@ import product from "../../../assets/img/product.png"
 //import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 //import { faChevronDown, faChevronUp, faTruck, faXmark } from "@fortawesome/free-solid-svg-icons";
 //import useMenuHandler from "../../menu-offcanvas/handlers/menuHandler";
-//import { useCartProduct } from "../handlers/shoppingHandler";
+//import { useShoppingProduct } from "../handlers/shoppingHandler";
 //import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, Key } from "react";
 
 
@@ -11,7 +11,7 @@ const Checkout = () => {
   const { updatePrice,orderData,handleClick } = usePayment()
   //const { toggleCollapse,isCollapsed }= useMenuHandler()
   //const { handleClickBuyin,buyinProduct }= usePayment()
-  //const { handleClickRemoveProduct} = useCartProduct()
+  //const { handleClickRemoveProduct} = useShoppingProduct()
 
 
 
