@@ -17,7 +17,7 @@ const Footer = () => {
     <>
     <div className="fondo-footer"> 
         <div className="fondo-footer2">
-              <footer className="row row-cols-1 row-cols-sm-2 row-cols-md-5  p-5 border-top">
+              <div className="row row-cols-1 row-cols-sm-2 row-cols-md-5  p-5 border-top">
                       <div className="col mb-3 ">
                         <img src={ logomenu } className="logo" alt="logo" title="Logo Nous"/>
                       </div>
@@ -54,8 +54,8 @@ const Footer = () => {
                           <li className="nav-item mb-2"><a href="1" className="nav-link p-0 text-dark"> Tranferencia bancaria <FontAwesomeIcon icon={faBuildingColumns} /> </a></li>
                         </ul>
                     </div>
-                </footer>
-                    <footer className="py-3 my-4 ">
+                </div>
+                    <div className="py-3 my-4 ">
                         <div className="row element-footer ">
                             <div className="col text-center"> 
                                 <ul className="nav justify-content-center border-bottom pb-3 mb-3">
@@ -74,7 +74,7 @@ const Footer = () => {
                                 </li>
                           </ul>
                             <p className="text-center text-muted">© 2023 Nous,LLC</p>
-                    </footer>
+                    </div>
             </div>
       </div>
     </>

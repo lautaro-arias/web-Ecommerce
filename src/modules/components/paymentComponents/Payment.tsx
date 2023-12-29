@@ -3,6 +3,7 @@ import { useShoppingProduct } from "../shopping-cart/handlers/shoppingHandler";
 import { usePayment } from "./handler/paymentHandler";
 import { Wallet } from '@mercadopago/sdk-react';
 import FooterPay from "./FooterPay";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 
 const Payment = () => {
@@ -10,55 +11,18 @@ const Payment = () => {
   const { selectedProductsArray} = useShoppingProduct()
 
   return (
-    <div className="container">
-                            {selectedProductsArray.map((product,index) => ( 
-
-                              <><div className="card mb-3 card-payment" key={index}>
-                                  <div className="col-md-4">
-                                  <div className="row g-0">
-                                  <img src={`https://raw.githubusercontent.com/lautaro-arias/api-web-ecommerce/fed6f04e29238ba2217b20e65b150fb288943ce2/src/assets/produsctSeason/${product.img}`}
-                                      className="img-fluid img-payment " alt="imgProducto" />
-                                  </div>
-                                  <div className="col-md-4">
-                                    <div className="card-body">
-                                      <h5 className="card-title">{product.nombre}</h5>
-                                      <h5 className="card-title"> $ {product.precio}</h5>
-                                      <h5 className="card-title">color: {product.color}</h5>
-                                      <h5 className="card-title">talle: {product.talle}</h5>
-                                    </div>
-                                </div>
-                                </div>
-
-                              </div>
-                              </>
-                              ))}
-
-
-
-
-                                {/* ESTO ES EL PRODUCT HOME COPIARLO  
-                                
-                                 <div className="container mb-4">
-            <Categories handleFilter={handleFilter} />
-              <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4  row-cols-xl-4">
-                          { visibleFilteredProducts.map((product, index) => (
+    <>
+        <div className="container mb-4">
+              <div className="row row-cols-2 row-cols-xs-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-4">
+                          { selectedProductsArray.map((product, index) => (
                         <div className="col mt-2" key={index}>
                               <div className="card rounded-4">
-                                <div className="image-container">
-                                <LazyLoadImage
-                                        src={`https://raw.githubusercontent.com/lautaro-arias/api-web-ecommerce/fed6f04e29238ba2217b20e65b150fb288943ce2/src/assets/produsctSeason/${product.img}`}
-                                        className="card-img-top img-product-components rounded-top-4"
-                                        alt="indumentaria"
-                                        /> 
-                                        <FontAwesomeIcon
-                                            className="p-2 mb-2 btn btn-outline-dark border border-dark rounded-5 icon-on-image"
-                                            type="button"
-                                            icon={faBagShopping}
-                                            title="Agregar"
-                                            data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                            onClick={() => { handleClickAddProduct(product) ; handleClickAddOne(true); handleClickShow() } }
-                                            /> 
-                                            </div>
+                                    <div className="image-container">
+                                        <LazyLoadImage
+                                          src={`https://raw.githubusercontent.com/lautaro-arias/api-web-ecommerce/fed6f04e29238ba2217b20e65b150fb288943ce2/src/assets/produsctSeason/${product.img}`}
+                                          className="img-fluid img-payment rounded-top-4 " alt="imgProducto" 
+                                          />
+                                      </div>
                                     <div className="card-body">
                                           <h3 className="card-title title">{product.nombre}</h3>
                                             <h6>
@@ -87,34 +51,32 @@ const Payment = () => {
                         </div>
                       
                       ))}
-                        <div className="container mt-4"> 
-                          <li className="btn btn-dark w-100 border border-secondary border-3 rounded-5" title="Ver mas" 
-                          onClick={handleShowMoreClick}>Ver más</li>
-                        </div>
-              </div>
+                </div>
+                      <div className="card text-center mt-3">
+                          <div className="card-header">
+                            Importes
                           </div>
-                                
-                                
-                                
-                                
-                                */}
-
-
-
-
-
-
-
-
-
-
-
-      <div className="container_payment ">
+                            <div className="card-body"  >
+                            { selectedProductsArray.map((product, index) => (
+                              <div className="mb-3" key={index} >
+                                  <ul className="list-group">
+                                    <li className="list-group-item">{product.nombre} : $ {product.precio} </li>
+                                  </ul>
+                              </div>
+                            ))}
+                               <h4> Total </h4>
+                                <Wallet  initialization={{ preferenceId , redirectMode: 'blank' }} />
+                            </div>
+                      </div>
+                    <FooterPay/>
+                </div>
+                                // USAR EL updatePrice Y PONERLO EN EL OFCANVAS ,PARA ACTUALIZAR EL MONTO Y LA CANTIDAD
+                {/*  <div className="container_payment">
         <div className="block-heading">
-          <h2> PAYMENT COMPONENT</h2>
+          <h2>Checkout Payment</h2>
           <p>This is an example of a Mercado Pago integration</p>
         </div>
-        <div className="form-payment bg-primary">
+        <div className="form-payment">
           <div className="products">
             <h2 className="title">Summary</h2>
             <div className="item">
@@ -130,16 +92,12 @@ const Payment = () => {
           </div>
           <div className="payment-details">
             <div className="form-group col-sm-12">
-              <button> 
-                  <Wallet  initialization={{ preferenceId , redirectMode: 'blank' }} />
-                  </button>
+              {renderCheckoutButton(preferenceId)}
             </div>
           </div>
         </div>
-      </div>
-      <FooterPay/>
-      </div>
-
+      </div>*/}
+            </>
   );
 };
 

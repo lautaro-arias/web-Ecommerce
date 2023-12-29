@@ -44,6 +44,10 @@ export const PaymentProvider = ({ children }:any) => {
         setOrderData({ ...orderData, quantity, amount });
     }
 
+ 
+
+
+
     const contextValue: PaymentContextProps = {
         handleClick,
         isReadyShow,

@@ -31,11 +31,7 @@ const Checkout = () => {
                     <div className="product-details">
                       <div className="row justify-content-md-center">
                         <div className="col-md-3">
-                          <img
-                            className="img-fluid mx-auto d-block image"
-                            alt=" product"
-                            src={product}
-                          />
+                          
                         </div>
                         <div className="col-md-4 product-detail">
                           <h5>Product</h5>

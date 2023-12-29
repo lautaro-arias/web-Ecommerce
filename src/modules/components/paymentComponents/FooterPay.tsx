@@ -1,7 +1,7 @@
 import horizontal_logo from '../../assets/img/horizontal_logo.png'
 const FooterPay = () => {
     return (
-      <footer className=''>
+      <footer className='footerpay '>
         <div className="footer_logo">
           <img
             id="horizontal_logo"
