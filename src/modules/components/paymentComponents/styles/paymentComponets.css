@@ -25,6 +25,7 @@
     border-color: var(--white);
 }
 
+
 .inputs:focus {
     box-shadow: none;
     outline: none;

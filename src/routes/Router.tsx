@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Main from '../modules/components/Main';
-import MainPayment from '../modules/components/paymentComponents/MainPaymet';
+import Render from '../modules/components/paymentComponents/Render';
 import { PaymentProvider } from '../modules/components/paymentComponents/handler/paymentHandler';
 import { CartProvider } from '../modules/components/shopping-cart/handlers/shoppingHandler';
 
@@ -13,7 +13,7 @@ return (
                     <Route path="/"  element={<Main/>} />
                 </Routes>
                 <Routes>
-                    <Route path="/Payment"  element={<MainPayment/>} />
+                    <Route path="/Payment"  element={<Render/>} />
                 </Routes>
             </CartProvider>
     </PaymentProvider>

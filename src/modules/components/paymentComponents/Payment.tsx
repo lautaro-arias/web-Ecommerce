@@ -1,19 +1,19 @@
-
 import { useShoppingProduct } from "../shopping-cart/handlers/shoppingHandler";
 import { usePayment } from "./handler/paymentHandler";
 import { Wallet } from '@mercadopago/sdk-react';
 import FooterPay from "./FooterPay";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFileInvoiceDollar } from "@fortawesome/free-solid-svg-icons";
 
 const Payment = () => {
-  const { orderData,preferenceId } = usePayment()
-  const { selectedProductsArray} = useShoppingProduct()
+  const { preferenceId } = usePayment();
+  const { selectedProductsArray,productQuantities,totalPrecios } = useShoppingProduct();
 
   return (
     <>
-        <div className="container mb-4">
-              <div className="row row-cols-2 row-cols-xs-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-4">
+        <div className="container  mb-4">
+              <div className="row row-cols-2 row-cols-xs-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-4 justify-content-center">
                           { selectedProductsArray.map((product, index) => (
                         <div className="col mt-2" key={index}>
                               <div className="card rounded-4">
@@ -54,49 +54,26 @@ const Payment = () => {
                 </div>
                       <div className="card text-center mt-3">
                           <div className="card-header">
-                            Importes
+                            Importes <FontAwesomeIcon icon={faFileInvoiceDollar} />
                           </div>
                             <div className="card-body"  >
                             { selectedProductsArray.map((product, index) => (
                               <div className="mb-3" key={index} >
                                   <ul className="list-group">
-                                    <li className="list-group-item">{product.nombre} : $ {product.precio} </li>
+                                    <li className="list-group-item">{product.nombre} : $ {product.precio * productQuantities[index]} <br/> unidades : {productQuantities[index]}</li>
                                   </ul>
                               </div>
                             ))}
-                               <h4> Total </h4>
+                                <div>
+                                  <h4 className=" mt-2 mb-3 p-2 bg-success bg-opacity-10 border border-success  rounded-3">
+                                    Total :  $ { totalPrecios }</h4>
+                              </div>
                                 <Wallet  initialization={{ preferenceId , redirectMode: 'blank' }} />
                             </div>
                       </div>
-                    <FooterPay/>
+                    
                 </div>
-                                // USAR EL updatePrice Y PONERLO EN EL OFCANVAS ,PARA ACTUALIZAR EL MONTO Y LA CANTIDAD
-                {/*  <div className="container_payment">
-        <div className="block-heading">
-          <h2>Checkout Payment</h2>
-          <p>This is an example of a Mercado Pago integration</p>
-        </div>
-        <div className="form-payment">
-          <div className="products">
-            <h2 className="title">Summary</h2>
-            <div className="item">
-              <span className="price" id="summary-price">${orderData.price}</span>
-              <p className="item-name">
-                Book X <span id="summary-quantity">{orderData.quantity}</span>
-              </p>
-            </div>
-            <div className="total">
-              Total
-              <span className="price" id="summary-total">${orderData.amount}</span>
-            </div>
-          </div>
-          <div className="payment-details">
-            <div className="form-group col-sm-12">
-              {renderCheckoutButton(preferenceId)}
-            </div>
-          </div>
-        </div>
-      </div>*/}
+                <FooterPay/>
             </>
   );
 };

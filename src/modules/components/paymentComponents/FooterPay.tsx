@@ -1,4 +1,4 @@
-import horizontal_logo from '../../assets/img/horizontal_logo.png'
+import horizontal_logo from '../../assets/img/horizontal_logo.png';
 const FooterPay = () => {
     return (
       <footer className='footerpay '>
