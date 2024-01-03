@@ -55,7 +55,6 @@ export const CartProvider = ({ children }:any) => {
         };
         const totalPrecios = sumarPrecios(selectedProductsArray, productQuantities);
         //
-
         useEffect(() => {
             // Actualizar productQuantities cuando selectedProductsArray cambie
             setProductQuantities(selectedProductsArray.map(() => 1));

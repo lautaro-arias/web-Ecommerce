@@ -8,8 +8,8 @@ image-rendering: pixelated;
 }
 
 .icon-close{
-    position: absolute;
-    right: -7px;
+    position: relative;
+    left: 18rem;
     top:-10px;
 }
 

@@ -15,10 +15,8 @@ const CartOffcanvas = () => {
                         <span className="visually-hidden ">unread messages</span>
                     </span>
                           </h5>
-                        <button type="button" className="btn btn-outline-dark border border-dark rounded-5"
-                          data-bs-dismiss="offcanvas" aria-label="Close">
-                            <FontAwesomeIcon icon={faArrowLeft} />
-                        </button>
+                            <FontAwesomeIcon type="button" className="btn btn-outline-dark border border-dark p-2 rounded-5"
+                          data-bs-dismiss="offcanvas" aria-label="Close" icon={faArrowLeft} />
                   </div>
                   {
                     showOffCanvas ? <BuyingComponent/> : <NoBuyingComponent/> 

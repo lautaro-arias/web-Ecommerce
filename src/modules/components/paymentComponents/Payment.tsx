@@ -65,6 +65,8 @@ const Payment = () => {
                               </div>
                             ))}
                                 <div>
+                                <h4 className=" mt-2 mb-3 p-2 bg-success bg-opacity-10 border border-success  rounded-3">
+                                    Envio :  Gratis </h4>
                                   <h4 className=" mt-2 mb-3 p-2 bg-success bg-opacity-10 border border-success  rounded-3">
                                     Total :  $ { totalPrecios }</h4>
                               </div>
