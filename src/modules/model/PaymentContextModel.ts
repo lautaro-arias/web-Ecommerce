@@ -1,4 +1,6 @@
 export interface PaymentContextProps {
+    formData: any;
+    handleChange: any;
     handleClick: any;
     isReadyShow: any;
     preferenceId: any;

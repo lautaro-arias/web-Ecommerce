@@ -11,6 +11,17 @@ export const PaymentProvider = ({ children }:any) => {
     const [preferenceId, setPreferenceId] = useState();
     const [isReadyShow, setIsReadyShow] = useState(true);
     const [validated, setValidated] = useState(false);
+    const [formData, setFormData] = useState({
+        nombre: '',
+        apellido: '',
+        gmail: '',
+        telefono: '',
+        provincia: '',
+        ciudad: '',
+        direccion: '',
+        codigoPostal: '',
+        aceptaTerminos: false,
+    });
 
     const handleClick = async () => {
         try {
@@ -32,6 +43,16 @@ export const PaymentProvider = ({ children }:any) => {
         } 
     };
 
+    
+    
+    const handleChange = (e:any) => {
+        const { id, value, type, checked } = e.target;
+        setFormData((prevData) => ({
+        ...prevData,
+        [id]: type === 'checkbox' ? checked : value,
+        }));
+    };
+    
     const handleSubmit = (event:any) => {
         const form = event.currentTarget;
 
@@ -40,7 +61,6 @@ export const PaymentProvider = ({ children }:any) => {
             event.stopPropagation();
         }
         setValidated(true);
-
         if (form.checkValidity()) {
             setIsReadyShow(false)
         }
@@ -48,6 +68,8 @@ export const PaymentProvider = ({ children }:any) => {
 
 
     const contextValue: PaymentContextProps = {
+        formData,
+        handleChange,
         handleClick,
         isReadyShow,
         preferenceId,
@@ -71,7 +93,7 @@ export const usePayment = () => {
     throw new Error('useCart must be used within a CartProvider');
     }
     return context;
-}
+};
 
 
 

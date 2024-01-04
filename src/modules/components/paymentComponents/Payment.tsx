@@ -1,22 +1,33 @@
 import { useShoppingProduct } from "../shopping-cart/handlers/shoppingHandler";
 import { usePayment } from "./handler/paymentHandler";
 import { Wallet } from '@mercadopago/sdk-react';
-import FooterPay from "./FooterPay";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFileInvoiceDollar } from "@fortawesome/free-solid-svg-icons";
+import { faFileInvoiceDollar, faUser } from "@fortawesome/free-solid-svg-icons";
+import logomenu from "../../assets/logo/logomenu.png";
+import FooterPay from "./FooterPay";
 
 const Payment = () => {
-  const { preferenceId } = usePayment();
+  const { preferenceId,formData } = usePayment();
   const { selectedProductsArray,productQuantities,totalPrecios } = useShoppingProduct();
 
   return (
     <>
+              <div>
+                  <nav className="navbar bg-white navbar-expand-lg p-3 ">
+                      <div className="container-fluid text-center">
+                                <div className="col">
+                                    <img src={logomenu} alt="Logo" width="100" height="90" className="rounded-0"/>
+                                </div>
+                          </div>
+                    </nav>
+                      <div className="bg-dark text-white">Gracias {formData.nombre} por tu compra !!!  </div>
+              </div>
         <div className="container  mb-4">
-              <div className="row row-cols-2 row-cols-xs-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-4 justify-content-center">
+              <div className="row row-cols-2 row-cols-xs-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-4 ">
                           { selectedProductsArray.map((product, index) => (
-                        <div className="col mt-2" key={index}>
-                              <div className="card rounded-4">
+                        <div className="container col mt-2" key={index}>
+                              <div className="card justify-content-center rounded-4 ">
                                     <div className="image-container">
                                         <LazyLoadImage
                                           src={`https://raw.githubusercontent.com/lautaro-arias/api-web-ecommerce/fed6f04e29238ba2217b20e65b150fb288943ce2/src/assets/produsctSeason/${product.img}`}
@@ -27,9 +38,6 @@ const Payment = () => {
                                           <h3 className="card-title title">{product.nombre}</h3>
                                             <h6>
                                               $ {product.precio}
-                                              <span className="ms-2 text-muted text-decoration-line-through">
-                                                ${product.rebaja}
-                                              </span>
                                             </h6>
                                           <div className="btn-group" role="group">
                                                 <a href='info' type="button" title="Informacion" className="p-1 mb-2 btn btn-dark  border-secondary border-2 rounded-5 dropdown-toggle" 
@@ -44,36 +52,50 @@ const Payment = () => {
                                                 </ul>
                                             </div>
                                       </div>
-                                      <small className="card-text text-muted mb-4">
-                                          {product.descripcion}
-                                      </small>
                               </div>
                         </div>
                       
                       ))}
                 </div>
-                      <div className="card text-center mt-3">
-                          <div className="card-header">
-                            Importes <FontAwesomeIcon icon={faFileInvoiceDollar} />
-                          </div>
-                            <div className="card-body"  >
-                            { selectedProductsArray.map((product, index) => (
-                              <div className="mb-3" key={index} >
-                                  <ul className="list-group">
-                                    <li className="list-group-item">{product.nombre} : $ {product.precio * productQuantities[index]} <br/> unidades : {productQuantities[index]}</li>
-                                  </ul>
-                              </div>
-                            ))}
-                                <div>
-                                <h4 className=" mt-2 mb-3 p-2 bg-success bg-opacity-10 border border-success  rounded-3">
-                                    Envio :  Gratis </h4>
-                                  <h4 className=" mt-2 mb-3 p-2 bg-success bg-opacity-10 border border-success  rounded-3">
-                                    Total :  $ { totalPrecios }</h4>
-                              </div>
-                                <Wallet  initialization={{ preferenceId , redirectMode: 'blank' }} />
+                  
+                <div className="container col-md-8 col-lg-8 col-xl-12">
+                  <div className="card text-center mt-3 justify-content-center">
+                        <div className="card-header">
+                            Datos del comprador <FontAwesomeIcon icon={faUser} />
                             </div>
+                              <div className="card-body"  >
+                                    <ul> 
+                                        <li className="list-group-item">{formData.nombre} {formData.apellido}</li>
+                                        <li className="list-group-item">{formData.provincia} / {formData.ciudad} / {formData.direccion}</li>
+                                        <li className="list-group-item">{formData.gmail} / {formData.telefono}</li>
+                                    </ul>
+                              </div>
+                        </div>       
+                      <div className="card text-center mt-3 justify-content-center">
+                          <div className="card-header">
+                              Importes <FontAwesomeIcon icon={faFileInvoiceDollar} />
+                              </div>
+                            <div className="card-body"  >
+                                  <div className="d-flex flex-wrap justify-content-center">
+                                      { selectedProductsArray.map((product, index) => (
+                                        <div className="mb-3 " key={index} >
+                                            <ul className="list-group d-grid">
+                                              <li className="list-group-item m-2 rounded-4"> 
+                                              {product.nombre} : $ {product.precio * productQuantities[index]} <br/> unidades : {productQuantities[index]}</li>
+                                            </ul>
+                                        </div>
+                                      ))}
+                                    </div>
+                                  <div className="container text-center col col-md-10 col-lg-8 col-xl-4 ">
+                                      <h5 className=" mt-2 mb-3 p-2 bg-info bg-opacity-10 border border-info border-start-0 rounded-end">
+                                          Envio :  Gratis </h5>
+                                        <h5 className=" mt-2 mb-3 p-2 bg-info bg-opacity-10 border border-info border-start-0 rounded-end">
+                                          Total :  $ { totalPrecios }</h5>
+                                          <Wallet initialization={{ preferenceId , redirectMode: 'blank' }} />
+                                      </div>
+                                </div>
+                          </div>
                       </div>
-                    
                 </div>
                 <FooterPay/>
             </>
