@@ -1,10 +1,3 @@
-.fondo{
-    background-color: var(--grey);
-}
-
-.title{
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
 .nav-nav{
     position: fixed; /* Fija la posición del elemento */
     top: 0px; /* Lo sitúa en la parte superior de la ventana */
@@ -14,9 +7,5 @@
     backdrop-filter: blur(10px);
 }
 
-.img-user{
-    height: 1.8rem;
-    width: 20%;
-}
 
 

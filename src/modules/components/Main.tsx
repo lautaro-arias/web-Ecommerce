@@ -8,7 +8,6 @@ import MapGoogle from './map-google/MapGoogle';
 import CartOffcanvas from './shopping-cart/CartOffcanvas';
 
 const Main = () => {
-    
 return (
     <> 
             <Navs/>

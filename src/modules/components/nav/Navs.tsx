@@ -29,31 +29,31 @@ return (
                                                 icon={faUser}
                                                 onClick={handleLoginButtonClick}
                                                 />
-                                            <ul className="dropdown-menu p-0 border border-dark rounded-0">
-                                                <li >
-                                                <GoogleOAuthProvider clientId ="102221184199-2r9igs03kv5n4a1mmpbe80li9fdt5j5a.apps.googleusercontent.com" >  
-                                                    <GoogleLogin 
-                                                        onSuccess={onSuccess}
-                                                        onError={() => {
-                                                            console.log("Error al iniciar sesion")
-                                                        }}
-                                                    />
-                                                </ GoogleOAuthProvider>
-                                                </li>
-                                            </ul>
+                                                <ul className="dropdown-menu p-0 border border-dark rounded-0">
+                                                    <li >
+                                                        <GoogleOAuthProvider clientId ="102221184199-2r9igs03kv5n4a1mmpbe80li9fdt5j5a.apps.googleusercontent.com" >  
+                                                            <GoogleLogin 
+                                                                onSuccess={onSuccess}
+                                                                onError={() => {
+                                                                    console.log("Error al iniciar sesion")
+                                                                }}
+                                                                />
+                                                        </ GoogleOAuthProvider>
+                                                    </li>
+                                                </ul>
                                         </div>
                                     )}
                                     {!showLoginButton&& (
-                                    <div className=" me-2"> 
-                                        <GoogleOAuthProvider clientId = "102221184199-2r9igs03kv5n4a1mmpbe80li9fdt5j5a.apps.googleusercontent.com" >  
-                                            <GoogleLogin
-                                            onSuccess={onSuccess}
-                                            onError={() => {
-                                            console.log("Error al iniciar sesion")
-                                            }}
-                                            />
-                                        </ GoogleOAuthProvider>
-                                    </div>
+                                        <div className=" me-2"> 
+                                            <GoogleOAuthProvider clientId = "102221184199-2r9igs03kv5n4a1mmpbe80li9fdt5j5a.apps.googleusercontent.com" >  
+                                                <GoogleLogin
+                                                    onSuccess={onSuccess}
+                                                    onError={() => {
+                                                    console.log("Error al iniciar sesion")
+                                                    }}
+                                                    />
+                                            </ GoogleOAuthProvider>
+                                        </div>
                                     )}
                                     <IconCart />
                                 </form>

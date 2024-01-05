@@ -8,11 +8,10 @@ const Map: React.FC = () => {
       <LoadScript googleMapsApiKey="AIzaSyCPkcXMkdLMd9tLj_aPaqhctVEsebhR3Es">
           <div className="border border-dark text-center "> 
                 <GoogleMap  center={center} zoom={15} mapContainerStyle={{ height: '400px', width: '100%' }}>
-                  <Marker position={markerPosition} />
+                    <Marker position={markerPosition} />
                 </GoogleMap>
           </div>
       </LoadScript>
   );
 };
-
 export default Map;

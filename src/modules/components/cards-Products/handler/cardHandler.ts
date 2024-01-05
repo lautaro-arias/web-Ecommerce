@@ -2,12 +2,10 @@ import  { useEffect,useReducer,useState,useMemo } from 'react';
 import { ProductService } from '../../../../services/productAll.service'
 
 const useAllProductHandler = () => {
-
     //Reducer  
     type Product = {
-    tipo:string,nombre:string,img:string,marca:string,talle:string,
-
-    precio:number,rebaja:number,color:string,descripcion:string,id:string,
+    tipo: string, nombre: string, img: string, marca: string, talle: string,
+    precio: number, rebaja: number, color: string, descripcion: string, id: string,
     };
     
     type ProductList = {
@@ -33,12 +31,13 @@ const useAllProductHandler = () => {
         }
     };
     //
-    
+    // Modelos arrays de productos
     const modelos = useMemo(
         () => ['products-remeras', 'products-camperas', 'products-busos', 'products-pantalones'],
         []
     );
-    
+    //
+
     useEffect(() => {
         //arrays de modelos de url - Api
         const productService = new ProductService(); // init service
@@ -61,13 +60,13 @@ const useAllProductHandler = () => {
         };
 
         fetchProducts();
-    },[modelos])
+    },[modelos]);
     //
 
     // Datos obtenidos del Reducer 
     const [productList, dispatch] = useReducer(productReducer, initialState);
     
-    const remerasData = productList['products-remeras']
+    const remerasData = productList['products-remeras'];
     const busosData = productList['products-busos'];
     const camperasData = productList['products-camperas'];
     const pantalonesData = productList['products-pantalones'];
@@ -80,7 +79,7 @@ const useAllProductHandler = () => {
     ];
     //
 
-    //control de vista 
+    //control de vista para ver mas 
     const [visibleProducts, setVisibleProducts] = useState(4);
 
     const show = () => {
@@ -102,7 +101,7 @@ const useAllProductHandler = () => {
     visibleProductsList
     }
 }
-    export default useAllProductHandler 
+export default useAllProductHandler ;
 
 
 

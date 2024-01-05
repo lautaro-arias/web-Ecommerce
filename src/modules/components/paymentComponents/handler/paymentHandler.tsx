@@ -11,22 +11,13 @@ export const PaymentProvider = ({ children }:any) => {
     const [preferenceId, setPreferenceId] = useState();
     const [isReadyShow, setIsReadyShow] = useState(true);
     const [validated, setValidated] = useState(false);
-    const [formData, setFormData] = useState({
-        nombre: '',
-        apellido: '',
-        gmail: '',
-        telefono: '',
-        provincia: '',
-        ciudad: '',
-        direccion: '',
-        codigoPostal: '',
-        aceptaTerminos: false,
+    const [formData, setFormData] = useState({nombre: '',apellido: '',gmail: '',telefono: '',provincia: '',
+    ciudad: '',direccion: '',codigoPostal: '',aceptaTerminos: false,
     });
 
+//Envia solicitud post ala api ,retorna id
     const handleClick = async () => {
         try {
-        
-
         const response = await fetch("http://localhost:4000/create-order", {
             method: "POST",
             headers: {
@@ -42,9 +33,9 @@ export const PaymentProvider = ({ children }:any) => {
         console.error(error);
         } 
     };
+    //
 
-    
-    
+///controlador del form validation
     const handleChange = (e:any) => {
         const { id, value, type, checked } = e.target;
         setFormData((prevData) => ({
@@ -52,7 +43,7 @@ export const PaymentProvider = ({ children }:any) => {
         [id]: type === 'checkbox' ? checked : value,
         }));
     };
-    
+    //
     const handleSubmit = (event:any) => {
         const form = event.currentTarget;
 

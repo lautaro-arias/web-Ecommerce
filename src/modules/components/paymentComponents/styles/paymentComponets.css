@@ -43,6 +43,10 @@
     height:24rem;
 }
 
+.importe{
+  border: #000 1px dashed;
+}
+
 footer {
     padding: 2% 10% 6% 10%;
     margin: 0 auto;

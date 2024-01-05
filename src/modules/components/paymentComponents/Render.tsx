@@ -7,7 +7,6 @@ const { isReadyShow }= usePayment()
 
 window.scrollTo(0, 0); 
   return (
-  
     <div>
           {
             isReadyShow ? <FormData/> : <Payment/>
@@ -15,5 +14,4 @@ window.scrollTo(0, 0);
     </div>
   )
 }
-
 export default MainPayment;
