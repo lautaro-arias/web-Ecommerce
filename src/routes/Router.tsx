@@ -7,18 +7,21 @@ import { CartProvider } from '../modules/components/shopping-cart/handlers/shopp
 const Urls = () => {
 return (
     <Router>
-        <PaymentProvider>
-            <CartProvider>
-                <Routes>
-                    <Route path="/"  element={<Main/>} />
-                </Routes>
-                <Routes>
-                    <Route path="/Payment"  element={<Render/>} />
-                </Routes>
-            </CartProvider>
-    </PaymentProvider>
+            <PaymentProvider>
+                    <CartProvider>
+
+                            <Routes>
+                                <Route path="/"  element={<Main/>} />
+                            </Routes>
+
+                            <Routes>
+                                <Route path="/Payment"  element={<Render/>} />
+                            </Routes>
+
+                    </CartProvider>
+        </PaymentProvider>
 </Router>
 )
 }
 
-export default Urls
+export default Urls;

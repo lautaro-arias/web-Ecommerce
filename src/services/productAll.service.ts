@@ -1,7 +1,5 @@
 import { services } from './global';
-
 export class ProductService { 
-
     private url: string = "http://localhost:4000";
     constructor() {
         if (services.environment === "devel")
@@ -24,7 +22,6 @@ export class ProductService {
                 throw new Error('Error al obtener la lista de productos');
             }
             const data = await response.json();
-            //console.log("data",data)
             return data;
         } catch (error) {
             throw error;
