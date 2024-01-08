@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { jwtDecode } from "jwt-decode";
-
+// se usa solo en el nav
 const useNavHandler = () => {
     const[user,setUser]=useState(false)
 

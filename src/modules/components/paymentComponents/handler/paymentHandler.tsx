@@ -2,9 +2,9 @@ import { PaymentContextProps } from '../../../model/PaymentContextModel';
 import { createContext,useState,useContext } from 'react';
 import { initMercadoPago } from '@mercadopago/sdk-react';
 
-
+// se usa en  RenderComponent y en todos los components payment
 const PaymentData = createContext<PaymentContextProps | undefined>(undefined);
-initMercadoPago('TEST-a90f16ef-c677-4a2b-a8b3-de9544cae21d')
+initMercadoPago('.env')
 
 
 export const PaymentProvider = ({ children }:any) => {
@@ -44,6 +44,7 @@ export const PaymentProvider = ({ children }:any) => {
         }));
     };
     //
+// controlador que dispara la validation
     const handleSubmit = (event:any) => {
         const form = event.currentTarget;
 
@@ -56,7 +57,7 @@ export const PaymentProvider = ({ children }:any) => {
             setIsReadyShow(false)
         }
     };
-
+    //
 
     const contextValue: PaymentContextProps = {
         formData,

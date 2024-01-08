@@ -3,7 +3,7 @@ import { CartContextProps } from "../../../model/CartContextModel"
 import { useState, createContext, useContext, useEffect} from "react";
 
 const CartContext = createContext<CartContextProps | undefined>(undefined);
-
+// se usa en payment yt en todos los components de shopping
 export const CartProvider = ({ children }:any) => {
 //estados dataproduct - numberIcon - showOFFcanvas-contadorPrecio
         const [selectedProductsArray, setSelectedProductsArray] = useState<Products[]>([]);

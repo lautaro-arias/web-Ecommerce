@@ -1,6 +1,7 @@
 import  { useEffect,useReducer,useState,useMemo } from 'react';
 import { ProductService } from '../../../../services/productAll.service'
 
+// Se usa en categoriesHandler
 const useAllProductHandler = () => {
     //Reducer  
     type Product = {
@@ -40,8 +41,9 @@ const useAllProductHandler = () => {
 
     useEffect(() => {
         //arrays de modelos de url - Api
-        const productService = new ProductService(); // init service
-
+        // init service
+        const productService = new ProductService();
+        // usamos los datos del fech
         const fetchProducts = async () => {
             //almacena los arrayas / products
             const productData:any = {}; 

@@ -1,6 +1,6 @@
 import { useReducer } from "react";
 import useAllProductHandler from "../../cards-Products/handler/cardHandler";
-
+// se usa en ProductHome
     const initialState = {
         type:"",
         marca:"",
