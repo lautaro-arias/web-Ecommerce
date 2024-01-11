@@ -1,3 +1,5 @@
+import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { usePayment } from './handler/paymentHandler';
 import './styles/paymentComponets.css';
 
@@ -22,7 +24,7 @@ return (
                                     required  
                                     />
                                 <div className="valid-feedback">
-                                    Excelente!
+                                    <FontAwesomeIcon icon={faCircleCheck} />
                                     </div>
                             </div>
                         <div className=" col-md-6  ">
@@ -36,7 +38,7 @@ return (
                                     required 
                                     />
                                 <div className="valid-feedback">
-                                        Excelente!
+                                        <FontAwesomeIcon icon={faCircleCheck} />
                                     </div>
                             </div>
                         <div className=" col-md-6  ">
@@ -55,7 +57,7 @@ return (
                                         Proporcione un correo valido.
                                         </div>
                                     <div className="valid-feedback">
-                                        Excelente!
+                                        <FontAwesomeIcon icon={faCircleCheck} />
                                         </div>
                                 </div>
                             </div>
@@ -73,7 +75,7 @@ return (
                                         Numero incorrecto.
                                         </div>
                                     <div className="valid-feedback">
-                                        Excelente!
+                                        <FontAwesomeIcon icon={faCircleCheck} />
                                         </div>
                             </div>   
                         <div className=" col-md-6  ">
@@ -90,7 +92,7 @@ return (
                                     Proporcione una provincia valida.
                                     </div>
                                 <div className="valid-feedback">
-                                    Excelente!
+                                    <FontAwesomeIcon icon={faCircleCheck} />
                                     </div>
                             </div>
                         <div className=" col-md-6  ">
@@ -118,7 +120,7 @@ return (
                                     Dirreccion incorrecta.
                                     </div>
                                 <div className="valid-feedback">
-                                    Excelente!
+                                    <FontAwesomeIcon icon={faCircleCheck} />
                                     </div>
                             </div>
                         <div className=" col-md-6  mb-4">
@@ -135,7 +137,7 @@ return (
                                     Codifo postal incorrecto.
                                     </div>
                                 <div className="valid-feedback">
-                                    Excelente!
+                                    <FontAwesomeIcon icon={faCircleCheck} />
                                     </div>
                         </div>
                         <div className="col-12 col-lg-4 container">
@@ -150,7 +152,7 @@ return (
                                         Acepta terminos y condiciones
                                         </label>
                                     <div className="invalid-feedback">
-                                        You must agree before submitting.
+                                        Debe aceptar los terminos y condiciones para seguir.
                                     </div>
                             </div>
                         </div>
@@ -159,7 +161,7 @@ return (
                                 className="btn btn-light bg-transparent text-white rounded-0 mt-4"
                                 type="submit"
                                 >
-                                Ir a payment
+                                ¡ Pagar !
                             </button>
                         </div>
                     </div>

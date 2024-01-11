@@ -1,4 +1,4 @@
-import { faBagShopping, faInfo } from '@fortawesome/free-solid-svg-icons';
+import { faInfo, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import  {  LazyLoadImage  }  from  'react-lazy-load-image-component' ;
 import Categories from '../categories/Categories';
@@ -26,8 +26,8 @@ return (
                                           <FontAwesomeIcon
                                               className="p-2 mb-2 btn btn-outline-dark border border-dark rounded-5 icon-on-image"
                                               type="button"
-                                              icon={faBagShopping}
-                                              title="Agregar"
+                                              icon={faPlus}
+                                              title="Agregar al carrito"
                                               data-bs-toggle="modal" data-bs-target="#exampleModal"
                                               onClick={() => { handleClickAddProduct(product) ; handleClickAddOne(true); handleClickShow() } }
                                               /> 
