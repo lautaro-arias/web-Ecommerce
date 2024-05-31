@@ -1,12 +1,12 @@
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import carousel1 from '../../assets/carousel/carousel1.png';
-import carousel2 from '../../assets/carousel/carousel2.png';
-import carousel3 from '../../assets/carousel/carousel3.png';
+import carousel1 from '../../assets/carousel/carousel1.webp';
+import carousel2 from '../../assets/carousel/carousel2.webp';
+import carousel3 from '../../assets/carousel/carousel3.webp';
 import './styles/banner.css';
 
 const banner = () => {
   return (
-      <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel">
+      <div id="carouselExampleFade" className="carousel slide carousel-fade h-50" data-bs-ride="carousel">
             <div className="carousel-inner">
                   <div className="carousel-item active">
                     <LazyLoadImage src={carousel1} className="d-block w-100 img-carrousel" alt="indumentaria masculina"/>

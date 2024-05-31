@@ -1,32 +1,9 @@
-.fondo-info1{
-    background-image: url(../../../assets/info/envios.png);
-    background-size: cover;
-    background-position: center;
-    height: 9rem;
+.fondo-info{
+    size: cover;
+    position: center;
+    height: 12rem;
 }
 
-.fondo-info2{
-    background-image: url(../../../assets/info/tarjeta.png);
-    background-size: cover;
-    background-position: center;
-    height: 9rem;
-
-}
-
-.fondo-info3{
-    background-image: url(../../../assets/info/efectivo.png);
-    background-size: cover;
-    background-position: center;
-    height: 9rem;
-
-}
-.fondo-info4{
-    background-image: url(../../../assets/info/moda.png);
-    background-size: cover;
-    background-position: start;
-    height: 9rem;
-
-}
 .fondo-body{
     backdrop-filter: blur(0px);
     transition:  backdrop-filter 0.3s ease;

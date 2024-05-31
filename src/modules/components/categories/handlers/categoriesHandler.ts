@@ -59,10 +59,9 @@ import useAllProductHandler from "../../cards-Products/handler/cardHandler";
     const filteredProducts = allProducts.filter((product) => {
         // filtrado segun que ...  
         return (
-        ( !filters.type  || product.tipo  === filters.type  ) &&
-        ( !filters.marca || product.marca === filters.marca ) &&
-        ( !filters.color || product.color === filters.color ) &&
-        ( !filters.talle || product.talle === filters.talle ) 
+            
+        ( !filters.type  || product.tipo  === filters.type  ) 
+        
         );
     });
      //

@@ -5,34 +5,23 @@
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
     "@fortawesome/free-brands-svg-icons": "^6.4.2",
-    "@fortawesome/free-regular-svg-icons": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@mercadopago/sdk-react": "^0.0.16",
     "@popperjs/core": "^2.11.8",
     "@react-google-maps/api": "^2.19.2",
-    "@react-oauth/google": "^0.11.1",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.59",
     "@types/react": "^18.2.33",
     "@types/react-dom": "^18.2.14",
     "bootstrap": "^5.2.3",
-    "crypto-browserify": "^3.12.0",
-    "dotenv": "^16.3.1",
-    "gapi-script": "^1.2.0",
-    "jwt-decode": "^4.0.0",
-    "os-browserify": "^0.3.0",
-    "path-browserify": "^1.0.1",
-    "popover": "^2.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-lazy-load-image-component": "^1.6.0",
     "react-router-dom": "^6.17.0",
     "react-scripts": "5.0.1",
-    "spinners-react": "^1.0.7",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
@@ -67,6 +56,7 @@
   "license": "ISC",
   "devDependencies": {
     "@types/bootstrap": "^5.2.9",
-    "@types/react-lazy-load-image-component": "^1.6.3"
+    "@types/react-lazy-load-image-component": "^1.6.3",
+    "purgecss": "^6.0.0"
   }
 }

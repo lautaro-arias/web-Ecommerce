@@ -2,9 +2,8 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {useShoppingProduct} from './handlers/shoppingHandler';
 
-const IconCart = () => {
+const IconCart = () => { 
 const { cartItemCount } =useShoppingProduct()
-
 return ( 
     <>
         <div className="position-relative">
@@ -20,6 +19,6 @@ return (
                     </span>
         </div>
     </>
-)
+    )
 }
 export default IconCart;
