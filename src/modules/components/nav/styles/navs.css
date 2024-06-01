@@ -3,7 +3,7 @@
     top: 0px; /* Lo sitúa en la parte superior de la ventana */
     left: 0; /* Lo sitúa en la parte izquierda de la ventana */
     width: 100%; /* Ocupa todo el ancho de la ventana */
-    z-index: 1000; /* Ajusta la profundidad para asegurarse de que esté por encima de otros elementos */
+    z-index: 50; /* Ajusta la profundidad para asegurarse de que esté por encima de otros elementos */
     backdrop-filter: blur(10px);
 }
 

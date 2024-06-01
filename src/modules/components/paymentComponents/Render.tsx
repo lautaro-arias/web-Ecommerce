@@ -1,16 +1,16 @@
 import FormData from './FormData';
 import Payment from './Payment';
-import {  usePayment } from './handler/paymentHandler';
+import { usePayment } from './handler/paymentHandler';
 
-const   MainPayment = () => {
-const { isReadyShow }= usePayment()
+const MainPayment = () => {
+  const { isReadyShow } = usePayment()
 
-window.scrollTo(0, 0); 
+  window.scrollTo(0, 0);
   return (
     <div>
-          {
-            isReadyShow ? <FormData/> : <Payment/>
-          }   
+      {
+        isReadyShow ? <FormData /> : <Payment />
+      }
     </div>
   )
 }

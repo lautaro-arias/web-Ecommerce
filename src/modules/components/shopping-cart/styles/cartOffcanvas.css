@@ -14,7 +14,7 @@ image-rendering: pixelated;
 }
 
 .fondo-offcanvas{
-    background-image: url(../../../assets/cartOfCanvas/cart.png);
+    background-image: url(../../../assets/cartOfCanvas/cart.webp);
     background-size: cover;
     background-position: center;
     height: 14rem;

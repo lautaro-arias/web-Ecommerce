@@ -72,7 +72,7 @@ const useAllProductHandler = () => {
     const busosData = productList['products-busos'];
     const camperasData = productList['products-camperas'];
     const pantalonesData = productList['products-pantalones'];
-
+    console.log(productList)
     const allProducts = [
         ...(remerasData || []),
         ...(busosData || []),

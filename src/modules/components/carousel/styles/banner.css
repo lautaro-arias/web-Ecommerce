@@ -1,8 +1,18 @@
 .img-carrousel{
     width: max-content;
+    height: 30rem;
+    object-fit: cover;
+    max-width: 100%;
+    object-position: top center;
+    max-height: min-content;
+    margin: 0 auto; 
+}
+.img-carrousel2{
+    width: max-content;
     height: 35rem;
     object-fit: cover;
     max-width: 100%;
+    object-position:  center;
     max-height: min-content;
     margin: 0 auto; 
 }

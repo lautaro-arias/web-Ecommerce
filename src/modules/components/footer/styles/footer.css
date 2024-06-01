@@ -1,5 +1,5 @@
 .fondo-footer{
-    background-image: url(../../../assets/footer/pexels-josh-hild-2422588.jpg);
+    background-image: url(../../../assets/footer/fondoFoter.webp);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -15,4 +15,7 @@
 .tarjeta-footer{
     height: 4rem;
     width: 100%;
+}
+.Logofooter{
+   border-radius: 5rem;
 }
